@@ -23,3 +23,11 @@
 - **Accepted:** Route A, OpenCode, and LangGraph as the three choices documented in `choices.md`.
 - **Modified:** Kept Ollama as a secondary option for local experiments and fallback access rather than the primary model route.
 - **Rejected:** Route B because the computer's 8 GB RAM limits local model capability; alternative harnesses because OpenCode is already installed and in use; and immediate commitment to LangGraph because ADR-1 must compare alternatives in Evolution 2.
+
+## 2026-09-20 - Skills Inventory
+
+- **Asked:** Requested help constructing a skills inventory from beginner-level knowledge of SQL, HTML, Python, ML/AI, and GitHub, plus basic website projects and no API experience.
+- **Model and harness:** `openai/gpt-5.6-sol` through OpenCode 1.18.21.
+- **Accepted:** A candid beginner-level inventory organized by skill area, with Mentalysis and Evolution-0 as accessible work samples.
+- **Modified:** Described the Project 1 website starter without a link because no public URL was available.
+- **Rejected:** Unsupported claims of advanced proficiency or API experience, because the inventory should accurately represent current skills and learning needs.
