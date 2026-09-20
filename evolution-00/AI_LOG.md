@@ -15,3 +15,11 @@
 - **Accepted:** The existing Python, VS Code, Git, Ollama, and OpenCode installations; installation of `uv` 0.12.17 and `py-gzkit` 0.34.7; and `llama3.2:3b` as a compact local Ollama model suitable for the computer's 8 GB of RAM.
 - **Modified:** Added the `uv` tool directory to the user PATH because it was not available to the shell immediately after installation.
 - **Rejected:** A larger local model, because the available 8 GB RAM and integrated graphics make a 3B model a more reliable baseline.
+
+## 2026-09-20 - Route, Harness, and Framework Choices
+
+- **Asked:** Requested guidance on Step 3 and selected a model-access route, primary harness, and provisional orchestration framework.
+- **Model and harness:** `openai/gpt-5.6-sol` through OpenCode 1.18.21.
+- **Accepted:** Route A, OpenCode, and LangGraph as the three choices documented in `choices.md`.
+- **Modified:** Kept Ollama as a secondary option for local experiments and fallback access rather than the primary model route.
+- **Rejected:** Route B because the computer's 8 GB RAM limits local model capability; alternative harnesses because OpenCode is already installed and in use; and immediate commitment to LangGraph because ADR-1 must compare alternatives in Evolution 2.
