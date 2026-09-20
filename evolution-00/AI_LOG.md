@@ -47,3 +47,11 @@
 - **Accepted:** ChatGPT as the representative chat assistant, OpenCode as the harness, official product documentation as sources, and a compact component-by-component comparison.
 - **Modified:** Used a table for the nine components so every required comparison remains explicit while the surrounding analysis stays near the requested length.
 - **Rejected:** Treating tool access alone as evidence of a harness; the judgment instead emphasizes repository action, verification, permissions, and preserved human control.
+
+## 2026-09-20 - Framework Board
+
+- **Asked:** Requested guidance on Step 7 and supplied the course image titled `Agentic AI: A Complete Framework`.
+- **Model and harness:** `openai/gpt-5.6-sol` through OpenCode 1.18.21.
+- **Accepted:** A Markdown transcription that checks boxes with concrete examples from systems already encountered and leaves unfamiliar topics unchecked as a reading list.
+- **Modified:** Consolidated the image's repeated Agent Management summary with cross-references to the detailed capability boxes while still representing all four summary items.
+- **Rejected:** Filling every box with newly invented or unfamiliar examples, because that would hide the knowledge gaps the assignment intends to expose.
