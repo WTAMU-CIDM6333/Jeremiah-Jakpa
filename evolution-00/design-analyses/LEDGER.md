@@ -2,4 +2,4 @@
 
 | Analysis | Subject | Status |
 | --- | --- | --- |
-| 1 | Chat assistant versus agent harness | Planned |
+| [1](../design-analysis.md) | ChatGPT versus OpenCode | Complete |

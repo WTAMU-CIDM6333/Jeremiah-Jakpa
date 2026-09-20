@@ -39,3 +39,11 @@
 - **Accepted:** An educational DCF-assumption review agent that uses evidence, deterministic checks, citations, uncertainty, and student approval.
 - **Modified:** Expanded the earlier Mentalysis website concept into an agentic system while preserving its educational scope and avoiding investment recommendations.
 - **Rejected:** A general-purpose finance assistant and unsupported claims that the system can replace student judgment, because both would weaken the user focus and increase safety risk.
+
+## 2026-09-20 - Design Analysis 1
+
+- **Asked:** Requested guidance on Step 6, comparing a chat assistant with the selected agent harness across nine components and documenting the judgment loop.
+- **Model and harness:** `openai/gpt-5.6-sol` through OpenCode 1.18.21.
+- **Accepted:** ChatGPT as the representative chat assistant, OpenCode as the harness, official product documentation as sources, and a compact component-by-component comparison.
+- **Modified:** Used a table for the nine components so every required comparison remains explicit while the surrounding analysis stays near the requested length.
+- **Rejected:** Treating tool access alone as evidence of a harness; the judgment instead emphasizes repository action, verification, permissions, and preserved human control.
