@@ -31,3 +31,11 @@
 - **Accepted:** A candid beginner-level inventory organized by skill area, with Mentalysis and Evolution-0 as accessible work samples.
 - **Modified:** Described the Project 1 website starter without a link because no public URL was available.
 - **Rejected:** Unsupported claims of advanced proficiency or API experience, because the inventory should accurately represent current skills and learning needs.
+
+## 2026-09-20 - One-Page System Pitch
+
+- **Asked:** Requested guidance on Step 5 and selected Mentalysis Agent for finance students, with misleading guidance as its primary risk.
+- **Model and harness:** `openai/gpt-5.6-sol` through OpenCode 1.18.21.
+- **Accepted:** An educational DCF-assumption review agent that uses evidence, deterministic checks, citations, uncertainty, and student approval.
+- **Modified:** Expanded the earlier Mentalysis website concept into an agentic system while preserving its educational scope and avoiding investment recommendations.
+- **Rejected:** A general-purpose finance assistant and unsupported claims that the system can replace student judgment, because both would weaken the user focus and increase safety risk.
