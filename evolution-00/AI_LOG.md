@@ -65,3 +65,78 @@ Entries group consecutive prompts, responses, revisions, and commit confirmation
 - **Accepted:** The existing step-based chronology because it captures each meaningful assignment interaction, the model and harness, and the decisions made.
 - **Modified:** Added explicit reasons for accepted decisions, corrected the Step 4 revision record, documented the grouping convention, and added this audit entry so the log matches the rubric.
 - **Rejected:** Separate entries for mechanical commit and push confirmations because they introduced no new generated content or substantive decision and are already grouped with their corresponding steps.
+
+## 2026-09-29 - AGENTS.md Lab Setup
+
+- **Asked:** Requested a simplified action plan for the `AGENTS.md` budget lab, completed the initial setup checks, and asked that the selected model deviation be recorded.
+- **Model and harness:** `openai/gpt-5.6-sol` through OpenCode 1.18.21.
+- **Accepted:** Continuing the exercise with GPT Sol because it is the user's chosen working model and can perform the same measurement procedure.
+- **Modified:** Replaced the lab-specified `opencode/big-pickle` model with `openai/gpt-5.6-sol` and documented that the resulting token counts may not be directly comparable with the class baseline.
+- **Rejected:** Muse Spark after briefly considering it, because the user decided to continue with GPT Sol instead.
+
+## 2026-09-29 - AGENTS.md Lab Model Switch
+
+- **Asked:** Reported that Big Pickle had been activated and asked to rewrite the Step 1 record using it.
+- **Model and harness:** `opencode/big-pickle` through OpenCode 1.18.21.
+- **Accepted:** Re-recording the measurement setup for `opencode/big-pickle` because it matches the lab specification and keeps the token comparison valid against the class baseline.
+- **Modified:** Replaced the GPT Sol model entry in the measurement setup table and removed the documented model deviation.
+- **Rejected:** Keeping the GPT Sol measurement baseline, because its token counts would not be comparable with classmates using Big Pickle.
+
+## 2026-09-29 - AGENTS.md Lab Inventory
+
+- **Asked:** Asked to proceed to the inventory step before drafting `AGENTS.md`.
+- **Model and harness:** `opencode/big-pickle` through OpenCode 1.18.21.
+- **Accepted:** Deriving the inventory only from `AI_LOG.md`, the commit history, and observable corrections in this session, because the lab forbids drafting from assumptions.
+- **Modified:** Replaced the lab template's example truth paths with the paths that actually exist, and documented the absent control surfaces after verifying them against the repository.
+- **Rejected:** The template commands `uv sync`, `uv run pytest -q`, and `gz status` plus the `docs/prd.md`, `docs/adr/`, and flight-card paths, because this repository is documentation only and contains none of them.
+
+## 2026-09-29 - AGENTS.md Draft and Measurement
+
+- **Asked:** Asked to draft `AGENTS.md`, then to prune it against the three probes and measure what the harness loads.
+- **Model and harness:** `opencode/big-pickle` through OpenCode 1.18.21.
+- **Accepted:** A 1640-character map built only from verified repository facts, a self-applied probe pass, and JSON token counts taken from `opencode run --format json` rather than read by eye from the TUI.
+- **Modified:** Removed the repository description as derivable, deleted the unenforceable no-secrets and no-push rules, replaced the unenforced-rules list with one factual statement that nothing here is mechanically enforced, and moved future-unenforced-rule guidance into conventions.
+- **Rejected:** Keeping the unenforceable rules as written intentions, and asking the user to read token counts off the TUI, because the JSON event stream reports the same input-token field directly and wishful rules fail the lab's own second probe.
+- **Measured:** 1640 characters; baseline 6042 input tokens; with file 6513; difference 471, which is 29% of the byte count and inside the lab's expected quarter-to-third range. Verbatim recall succeeded, with the model correctly reporting that the file states there is no test suite.
+
+## 2026-09-29 - `/init` Comparison and Session Pause
+
+- **Asked:** Asked how to read the token count from the TUI, then asked to continue to the `/init` comparison, and finally asked to pause until Chase partner details are known.
+- **Model and harness:** `opencode/big-pickle` through OpenCode 1.18.21.
+- **Accepted:** Measuring tokens through `opencode run --format json` instead of the TUI, running `/init` inside a temporary scratch copy rather than the repository, and recording the full worksheet plus self-review candidates in the measurement file so the session can resume later.
+- **Modified:** Corrected the earlier assumption that the verbatim-recall probe would return a command; it instead returned the file's claim that no test suite exists, which is accurate for this repository and still distinguishes a loaded file from an unloaded one. The `/init` specimen measured 2985 characters, 1.82x the hand-written file, and was shown to fail all three probes despite fitting the budget.
+- **Rejected:** Running `/init` in the working tree, because it would have overwritten the hand-written file, and leaving the Chase section as a placeholder, because the worksheet and the outstanding issues needed to be captured before stopping.
+- **Deferred:** The Chase exchange, final verdict, ledger event, and commit, all pending the partner's details. One candidate addition from the `/init` specimen, the `board.md` unchecked-box convention, is proposed but not yet applied.
+
+## 2026-09-29 - AGENTS.md Chase Review of Partner File
+
+- **Asked:** Provided the partner's `AGENTS.md` along with the three Chase probe instructions, and asked for the review to be run against it.
+- **Model and harness:** `opencode/big-pickle` through OpenCode 1.18.21.
+- **Accepted:** A FAIL verdict with one quoted line per probe, plus two structural findings, because the second read found all three failure types and the lab allows no judgement call on the count.
+- **Modified:** Framed Probe 1 around the fact that every role description in the partner's truth-lives list restates its filename, rather than around the presence of paths themselves, since a required section cannot simply be deleted.
+- **Rejected:** Passing the partner's file on the grounds that its enforced rule already uses the correct `Enforced by: nothing yet — GHI #1` wording, because the referenced issue could not be verified as opened and a reference to a nonexistent issue is a placeholder that still fails the probe; and answering with only the review while leaving the worksheet fields unrecorded.
+
+## 2026-09-29 - Chase Findings Applied and File Re-measured
+
+- **Asked:** Provided three probe findings against our own `AGENTS.md` and asked for them to be recorded, since the partner returned no written review.
+- **Model and harness:** `opencode/big-pickle` through OpenCode 1.18.21.
+- **Accepted:** All three findings, and a PASS verdict after fixing them, because each identified a real defect and the second read then found none of the three problems.
+- **Modified:** Cut the derivable half of the opening line, rewrote the commit gate as `Enforced by: nothing automated; approval is manual`, and replaced `Unconfirmed means it does not exist` with the checkable `confirm it exists by reading it`. Re-measured the file after editing rather than reporting a number that no longer matched it, and switched the token figure from bare `tokens.input` to total input because cache-read variation made the bare field unstable.
+- **Rejected:** The `board.md` convention from the `/init` specimen, the earlier 471-token figure, and the claim that the file already warned about filling gaps in `board.md`, which it does not and which was corrected before recording.
+- **Measured:** Final file 1665 characters; difference 450 to 490 tokens, or 0.27 to 0.30 per character, against a baseline with roughly 50 tokens of run-to-run spread.
+
+## 2026-09-29 - Ledger Event Deviation
+
+- **Asked:** Asked how to satisfy the exit ticket's ledger event, given that `gz` is installed but the repository has no `.gzkit` ledger.
+- **Model and harness:** `opencode/big-pickle` through OpenCode 1.18.21.
+- **Accepted:** Recording the commit in this log and in the measurement file while stating the deviation plainly, because the repository is documentation-only and the deviation is a finding rather than a defect to hide.
+- **Modified:** None.
+- **Rejected:** Running `gz init` to scaffold governance, because `gz ledger` only offers a merge driver for an existing ledger and initialising one would also contradict the `AGENTS.md` line stating there are no hooks or permission rules, invalidating the just-recorded measurement.
+
+## 2026-10-14 - Three Probes Against Our AGENTS.md
+
+- **Asked:** Requested three quoted probe results against our own AGENTS.md.
+- **Model and harness:** GPT-6-based Codex through the Codex desktop app; exact model route is not exposed in this session.
+- **Accepted:** Review findings from the current file: the course-deliverable description repeats repository context; the commit gate has no mechanical enforcement; "Unconfirmed means it does not exist" supplies no concrete verification criterion.
+- **Modified:** Applied the three lab probe categories to our file instead of the partner's file. No edits to AGENTS.md were made.
+- **Rejected:** Presenting this assistant review as the pending human partner review, or describing any repository rule as mechanically enforced.
