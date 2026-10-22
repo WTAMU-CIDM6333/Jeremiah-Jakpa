@@ -1,6 +1,6 @@
 # E1 — Sortie 1 flight card
 
-Status: DRAFT — product attested 2026-10-21; preparation gate verified; awaiting substrate freeze and Chase GO.
+Status: PREPARED FOR CHASE REVIEW — product attested; preparation substrate fixed below; reviewer identity and GO pending.
 Prepared: 2026-10-18. Pilot: Jeremiah Jakpa. Chase: awaiting reviewer assignment.
 
 ## ENVELOPE
@@ -26,12 +26,16 @@ within its budget, it halts at its steps limit and provides a text-only summary.
 
 - Repository: https://github.com/WTAMU-CIDM6333/Jeremiah-Jakpa
 - Imported E0 base: `69eff6b26a9de10b8333a0ffce6c4f475d09cb11`.
-- Flight commit: PENDING — record full immutable E1 preparation SHA here in a
-  subsequent card-freeze commit before Chase review. Record GO commit separately
-  in the flight log; require no intervening system/configuration changes.
-- OpenCode: `1.18.21` rechecked 2026-10-21; export help confirms `--sanitize`.
+- Preparation commit: `d0743be8acf896b6a1fd1af97a172f53475f22d2`.
+  This subsequent card-freeze change identifies the tested system baseline.
+  Record the card-freeze, GO, and actual flight commits separately in the log;
+  require no intervening system/configuration changes. Chase supplies their
+  reviewer identity before signing. No flight is authorized by this freeze.
+- OpenCode: `1.18.21` rechecked 2026-10-22; export help confirms `--sanitize`.
 - Model: `opencode/big-pickle` (listed by `opencode models opencode`; availability
   during flight untested).
+- Resolved agent rechecked 2026-10-22: primary `mentalysis`, provider `opencode`,
+  model `big-pickle`, steps 5.
 - Host: Windows, PowerShell 5.1. gzkit: `0.34.7`.
 - Effective configuration inspected 2026-10-21 using `opencode debug config`
   and `opencode debug agent mentalysis`: default agent `mentalysis`, sharing

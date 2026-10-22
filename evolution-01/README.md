@@ -48,7 +48,8 @@ The existing nine-component design analysis and judgment loop are in
    Preparation completion remains a separate governed acceptance decision.
 2. Review/stage the intended E1 and governance files, commit preparation with
    the required ledger events, then record its immutable SHA in the card. The
-   current E1 package is untracked; an E0 HEAD SHA cannot stand in for it.
+   E1 preparation baseline is `d0743be8acf896b6a1fd1af97a172f53475f22d2`;
+   its ledger commit events are included with the card-freeze follow-up.
 3. Commit the frozen card and make it available to the assigned Chase. Chase
    appends the actual dated GO in the repository before either test runs.
 4. Run TP1 and TP2, capture unedited sanitized exports, inspect the actual

@@ -135,3 +135,8 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
 - **Verification after repair:** The complete E1 preparation gate passed: nine
   unit tests, scoped Ruff lint, ten governance validation scopes, and both
   authored briefs. This is preparation verification only.
+- **Preparation commit:** `d0743be8acf896b6a1fd1af97a172f53475f22d2`.
+  The packaged `uv run python -m gzkit.hooks.commit_ledger` emitted seven
+  governance artifact-edit events. Card-freeze follow-up records this baseline.
+  OpenCode 1.18.21 again resolved the primary agent/model/five-step setting on
+  2026-10-22. No flight model invocation or Chase signature was fabricated.

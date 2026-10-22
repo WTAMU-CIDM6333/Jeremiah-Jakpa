@@ -170,7 +170,13 @@ An initial combined validation including `--fidelity-presence` was rejected beca
 
 ### Gate 2 (Verification)
 
-The parent-authored package exists; acceptance review and actual flight remain pending. No flight test or model call has occurred in this conversion pass.
+Preparation publication verification passed on 2026-10-22 through the explicitly
+approved `uv run python scripts/check_e1.py`: nine tests, gate-code lint, ten
+governance scopes, and both authored briefs. Preparation commit:
+`d0743be8acf896b6a1fd1af97a172f53475f22d2`. The packaged commit-ledger recorder
+emitted seven governance artifact-edit events for that commit. This evidence
+supports publishing preparation, not a full gzkit pass or flight completion.
+Actual flight and brief-completion attestation remain pending.
 
 ### Gate 5 (Human)
 
