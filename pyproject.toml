@@ -1,0 +1,25 @@
+[project]
+name = "mentalysis-course"
+version = "0.1.0"
+description = "Mentalysis educational DCF review: CIDM 6333 course repository"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+# Development-only tools required by the installed gzkit check runners.
+# Preserve the governance version used to create the E1 ledger; 0.34.9 was
+# inspected separately and does not fix the adopter-path/publication defects.
+dev = [
+    "py-gzkit==0.34.7",
+    "ruff",
+    "ty",
+    "unittest-parallel",
+    "behave",
+    "pymarkdownlnt",
+    "mkdocs-material",
+    "pre-commit",
+    "pyyaml",
+]
+
+[tool.uv]
+package = false

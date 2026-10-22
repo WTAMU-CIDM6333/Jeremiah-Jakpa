@@ -1,0 +1,14 @@
+# Operator-approved E1 preparation gate, 2026-10-22.
+# See docs/governance/e1-publication-blocker.md for the policy decision,
+# retained upstream failures, and the distinction from flight acceptance.
+default_stages: [pre-commit]
+
+repos:
+  - repo: local
+    hooks:
+      - id: e1-preparation-pre-push
+        name: E1 preparation publication gate
+        entry: uv run python scripts/check_e1.py
+        language: system
+        pass_filenames: false
+        stages: [pre-push]

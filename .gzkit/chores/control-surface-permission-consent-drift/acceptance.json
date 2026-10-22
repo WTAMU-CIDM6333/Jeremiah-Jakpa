@@ -1,0 +1,10 @@
+{
+  "criteria": [
+    {
+      "type": "exitCodeEquals",
+      "command": "uv run python scripts/check_proof_freshness.py control-surface-permission-consent-drift",
+      "expected": 0,
+      "description": "proof artifacts postdate the surfaces they audit (supersedes `test -f`)"
+    }
+  ]
+}

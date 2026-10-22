@@ -1,0 +1,7 @@
+# gzkit-managed-codex-config: v1
+sandbox_mode = "workspace-write"
+[features]
+hooks = true
+
+[sandbox_workspace_write]
+network_access = true

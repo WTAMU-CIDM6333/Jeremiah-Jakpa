@@ -1,0 +1,71 @@
+{
+  "mode": "lite",
+  "paths": {
+    "prd": "design/prd",
+    "constitutions": "design/constitutions",
+    "obpis": "design/adr",
+    "adrs": "design/adr",
+    "source_root": "src",
+    "tests_root": "tests",
+    "docs_root": "docs",
+    "design_root": "design",
+    "gzkit_dir": ".gzkit",
+    "ledger": ".gzkit/ledger.jsonl",
+    "manifest": ".gzkit/manifest.json",
+    "canonical_rules": ".gzkit/rules",
+    "canonical_schemas": ".gzkit/schemas",
+    "agents_md": "AGENTS.md",
+    "claude_md": "CLAUDE.md",
+    "claude_hooks": ".claude/hooks",
+    "claude_settings": ".claude/settings.json",
+    "claude_rules": ".claude/rules",
+    "claude_skills": ".claude/skills",
+    "codex_config": ".codex/config.toml",
+    "codex_skills": ".agents/skills",
+    "copilot_skills": ".github/skills",
+    "copilot_instructions": ".github/copilot-instructions.md",
+    "discovery_index": ".github/discovery-index.json",
+    "copilot_hooks": ".github/copilot/hooks",
+    "skills": ".gzkit/skills",
+    "personas": ".gzkit/personas",
+    "chores": ".gzkit/chores"
+  },
+  "vendors": {
+    "claude": {
+      "enabled": true,
+      "surface_root": ".claude",
+      "instruction_format": "claude-rules"
+    },
+    "copilot": {
+      "enabled": false,
+      "surface_root": ".github",
+      "instruction_format": "github-instructions"
+    },
+    "codex": {
+      "enabled": false,
+      "surface_root": ".agents",
+      "instruction_format": "generic"
+    },
+    "gemini": {
+      "enabled": false,
+      "surface_root": ".gemini",
+      "instruction_format": "generic"
+    },
+    "opencode": {
+      "enabled": false,
+      "surface_root": ".opencode",
+      "instruction_format": "generic"
+    }
+  },
+  "arb": {
+    "receipts_root": "artifacts/receipts",
+    "default_limit": 20
+  },
+  "authorship": {
+    "required_email_suffix": null
+  },
+  "smoke": {
+    "required": false
+  },
+  "project_name": "Jeremiah-Jakpa"
+}

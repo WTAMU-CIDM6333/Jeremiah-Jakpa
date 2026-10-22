@@ -1,0 +1,32 @@
+# E1 — Sortie 1 flight log
+
+Status: NOT FLOWN. No verdict has been earned. No test entries or session exports
+exist yet. This is a recording template, not evidence of a flight.
+
+## Preflight record (complete only after committed Chase GO)
+
+- Pilot / Chase / UTC start time: pending.
+- Preparation SHA / card-freeze SHA / GO SHA / actual flight SHA: pending.
+- OpenCode version / model / effective steps: pending observation.
+- Clean worktree and frozen configuration confirmation: pending observation.
+
+## Test-point observations
+
+| Test | Session / timestamps | Sanitized export / SHA-256 | Iterations / tool calls / terminal record | Observation / verdict |
+| --- | --- | --- | --- | --- |
+| TP1 | Not run | Not generated | Not observed | Pending |
+| TP2 | Not run | Not generated | Not observed | Pending |
+
+After flight, report the runtime's iteration-count convention, exact record IDs,
+and whether TP2 actually reached the configured boundary. Quote any error text
+and identify remaining review items. Keep retries visible.
+
+## Sortie verdict
+
+Pending flight — replace with PASS, FAIL, or ABORT based on evidence and every
+pre-registered falsifier. Lack of a flight is not an observed runtime ABORT.
+
+## Chase evidence review
+
+Unsigned — after reviewing only the evidence, Chase appends:
+`CHASE — <name> — <date> — PASS or FAIL — <falsifier quoted>`.

@@ -1,0 +1,81 @@
+{
+  "schema": "gzkit.manifest.v2",
+  "structure": {
+    "source_root": "src",
+    "tests_root": "tests",
+    "docs_root": "docs",
+    "design_root": "design"
+  },
+  "artifacts": {
+    "prd": {
+      "path": "design/prd",
+      "schema": "gzkit.prd.v1"
+    },
+    "constitution": {
+      "path": "design/constitutions",
+      "schema": "gzkit.constitution.v1"
+    },
+    "obpi": {
+      "path": "design/adr",
+      "schema": "gzkit.obpi.v1"
+    },
+    "adr": {
+      "path": "design/adr",
+      "schema": "gzkit.adr.v1"
+    }
+  },
+  "data": {
+    "eval_datasets": "data/eval",
+    "eval_schema": "data/schemas/eval_dataset.schema.json",
+    "baselines": "artifacts/baselines",
+    "schemas": "data/schemas"
+  },
+  "ops": {
+    "chores": ".gzkit/chores",
+    "receipts": "artifacts/receipts",
+    "proofs": "artifacts/proofs"
+  },
+  "thresholds": {
+    "coverage_floor": 40.0,
+    "eval_regression_delta": 0.05,
+    "function_lines": 50,
+    "module_lines": 600,
+    "class_lines": 300
+  },
+  "control_surfaces": {
+    "agents_md": "AGENTS.md",
+    "claude_md": "CLAUDE.md",
+    "hooks": ".claude/hooks",
+    "skills": ".gzkit/skills",
+    "canonical_rules": ".gzkit/rules",
+    "canonical_schemas": ".gzkit/schemas",
+    "claude_skills": ".claude/skills",
+    "codex_config": ".codex/config.toml",
+    "codex_skills": ".agents/skills",
+    "copilot_skills": ".github/skills",
+    "instructions": ".github/instructions",
+    "claude_rules": ".claude/rules",
+    "personas": ".gzkit/personas"
+  },
+  "verification": {
+    "lint": "uv run gz lint",
+    "format": "uv run gz format",
+    "typecheck": "uv run gz typecheck",
+    "test": "uv run gz test",
+    "docs": "uv run mkdocs build --strict",
+    "bdd": "uv run -m behave features/"
+  },
+  "gates": {
+    "lite": [
+      1,
+      2
+    ],
+    "heavy": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}
