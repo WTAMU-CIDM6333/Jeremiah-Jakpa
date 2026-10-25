@@ -3,6 +3,19 @@
 Status: NOT FLOWN. No verdict has been earned. No test entries or session exports
 exist yet. This is a recording template, not evidence of a flight.
 
+## Administrative deferral — 2026-10-25 (not a flight event)
+
+The operator reports that the Chase partner is unavailable. Chase review, GO,
+the E1 sortie, and evidence review are deferred and will be revisited when the
+partner becomes available. No test point has run; no PASS, FAIL, or runtime
+ABORT is claimed. The existing unsigned GO requirement remains in force.
+
+The operator requested proceeding with E2 preparation while this dependency is
+pending. This is a recorded sequencing deviation from the assignment's in-order
+review cycle, not evidence that E1 is complete or an instructor-approved waiver.
+Before returning to E1, review the frozen preparation baseline, obtain the
+Chase's committed GO, and then run the two original test points in fresh sessions.
+
 ## Preflight record (complete only after committed Chase GO)
 
 - Pilot / Chase / UTC start time: pending.

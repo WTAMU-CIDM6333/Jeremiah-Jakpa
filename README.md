@@ -14,4 +14,6 @@ Mentalysis is an educational DCF-assumption review assistant for finance student
 - `AI_LOG.md`: current AI interactions; historical log remains under E0.
 
 Start with [the E1 runbook](evolution-01/README.md). No E1 sortie has flown.
-E2–E4 will follow in order after E1's review cycle.
+As of 2026-10-25, the Chase partner is unavailable. E1 review and flight are
+deferred and will be revisited. At the operator's request, E2 preparation proceeds
+while that dependency is pending; no sortie or completion verdict is implied.

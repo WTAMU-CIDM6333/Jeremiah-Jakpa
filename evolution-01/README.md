@@ -21,7 +21,10 @@ Current phase: preparation, before Chase review and flight.
    PASS/FAIL/ABORT. Commit log and sanitized evidence with ledger events.
 8. Ask Chase to review the evidence and append the required CHASE verdict.
 
-E2 starts after the E1 evidence/review cycle. No flight result is claimed here.
+On 2026-10-25 the operator reported the Chase partner unavailable and requested
+E2 preparation while E1 review/flight is deferred. Revisit E1 when the partner
+returns; retain its frozen baseline and obtain committed GO before running it.
+E1 is NOT FLOWN. This sequencing deviation does not waive either sortie's GO.
 
 ## Preparation verification — 2026-10-21
 

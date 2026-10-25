@@ -140,3 +140,18 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   governance artifact-edit events. Card-freeze follow-up records this baseline.
   OpenCode 1.18.21 again resolved the primary agent/model/five-step setting on
   2026-10-22. No flight model invocation or Chase signature was fabricated.
+
+## 2026-10-25 — E1 deferral and E2 preparation request
+
+- **Operator request (verbatim):** "record that the chase partner is unavailable and would be revisited, lets move on to e2"
+- **Model:** `openai/gpt-6-astra` through OpenCode.
+- **Decision recorded:** E1 remains NOT FLOWN; Chase review/GO and the flight
+  will be revisited when the partner is available. Proceeding to E2 preparation
+  is a sequencing deviation, not completion of E1 or instructor approval.
+- **Evidence:** `evolution-01/flight-log.md` contains an administrative deferral,
+  explicitly distinguished from a flight event. No model sortie was run.
+- **Publication clarification:** The operator selected "Push deferral note";
+  this authorizes publishing the note, not executing the sortie.
+- **Governance record:** `uv run gz obpi block OBPI-0.1.0-02-flight` recorded an
+  `obpi_blocked_on_operator` event with the unavailable Chase as the reason and
+  committed GO as the required next action. The ledger was written by gzkit.
