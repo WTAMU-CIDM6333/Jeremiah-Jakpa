@@ -75,7 +75,7 @@ Separate preparation and flight units preserve the review boundary while Chase i
 
 ### Negative
 
-Prompt ordering can fail; five primary steps and three worker steps do not guarantee completion or map one-to-one to tool calls. The model may refuse to attempt the probe, leaving TP2 inconclusive. Export visibility, model availability, and human review can block evidence collection. One sortie cannot establish general reliability.
+Prompt ordering can fail; five primary steps and three worker steps do not guarantee completion or map one-to-one to tool calls. A refusal or non-attempt without the frozen deny-rule snapshot and confirmed non-execution leaves TP2 inconclusive; with that corroboration, no attempt is acceptable. Export visibility, model availability, and human review can block evidence collection. One sortie cannot establish general reliability.
 
 ## Fidelity Assertions
 
