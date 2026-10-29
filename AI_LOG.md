@@ -295,3 +295,35 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
 - **Outcome:** Log and card record the ABORT; TP1 is "not observed" and TP2 is
   "not run". A re-flight needs a fresh dated GO. No completion attestation is
   claimed.
+
+## 2026-10-29 — Repository cleanup: repo map instead of folder merges
+
+- **Request:** Operator asked to combine similar folders into a general document
+  where appropriate, and explicitly not to combine where inappropriate.
+- **Survey:** Enumerated every content folder and traced its consumers.
+  `design-analyses/` is named by `scripts/check_e1.py` (lines 22-23),
+  `tests/test_e1_preparation.py`, `ADR-0.1.0` line 45, both E1 briefs, both E2
+  briefs, `ADR-0.2.0` lines 63-64, `README.md`, and `evolution-01/README.md` —
+  21 references in total. `OBPI-0.2.0-01-preparation.md` Interfaces authorizes
+  those exact paths, and the E2 package was approved at `bfb5abf`.
+- **Decision:** No folder moved. Merging `design-analyses/` would require editing
+  the frozen E2 briefs and would invalidate the GO snapshot; merging
+  `evolution-00/01/02` would erase per-stage status and evidence; `.gzkit/` and
+  the `.claude/`, `.agents/`, `.github/` mirrors are generated or ledger-bound.
+- **Change:** Replaced the flat README bullet list with a `Current status` block
+  and a `Repository map` that groups paths by role and states why each similar-
+  looking group stays separate. Corrected the stale E2 line, which still said
+  "NOT FLOWN and has no GO" after the GO at `e7f3155` and the ABORT at `f839867`.
+- **Local-only cleanup:** Removed empty untracked `conversion-staging/`,
+  `design/constitutions/`, and `design/adr/foundation/`, plus gitignored
+  `__pycache__` and `.ruff_cache`. Git does not track empty directories, so no
+  repository content changed from those removals.
+- **Preserved:** `data/audit_thresholds.json` despite having no in-repo
+  reference; `gzkit.commands.adr_audit` reads it by convention.
+- **Insight:** Recorded `improvement`/`repo-structure` via `gz insights remember`.
+- **Validation:** Nine governance scopes, fidelity-presence, both authored E2
+  briefs, and `git diff --check` re-run after the edit; all pass.
+- **Gate 3 caveat:** `uv run gz lint` fails with 40 ruff findings in the
+  canonical `.claude/hooks/` scripts. Those files are unchanged by this commit,
+  so the failure exists at HEAD; it is recorded as a `defect`/`gz-lint` insight
+  rather than repaired inside a docs-only cleanup.
