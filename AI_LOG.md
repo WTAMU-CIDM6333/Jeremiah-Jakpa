@@ -155,3 +155,57 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
 - **Governance record:** `uv run gz obpi block OBPI-0.1.0-02-flight` recorded an
   `obpi_blocked_on_operator` event with the unavailable Chase as the reason and
   committed GO as the required next action. The ledger was written by gzkit.
+
+## 2026-10-25 — E2 orchestrator–workers preparation
+
+- **Request/choice:** Proceed to E2; operator explicitly chose "Feature" for
+  its gzkit plan. E1 remains blocked on the unavailable Chase.
+- **Authoring model:** `openai/gpt-6-astra` through OpenCode. Governance authoring
+  delegated using the task tool per the plan skill; subagent model ID not exposed.
+  Flight definitions use `opencode/big-pickle`; no E2 model sortie was invoked.
+- **Built:** Separate E2 primary, two ordered workers, registered denied probe,
+  course ADR-1 with two alternatives/scorecard, nine-component LangGraph design
+  analysis, ledger row, and unsigned card/log/evidence instructions. E1 agent
+  and project default configuration remain unchanged.
+- **Claim checked:** OpenCode `permission.task` applies to the primary's Task
+  calls; last matching rule wins, denied targets are omitted from the tool
+  description, and direct user `@` invocation is a distinct path. Checked against
+  https://opencode.ai/docs/agents/#task-permissions on 2026-10-25. Consequently
+  the negative test requests a Task attempt, not an @ mention, and a non-attempt
+  is insufficient evidence rather than PASS.
+- **Alternative sources:** LangGraph workflows/agents documentation establishes
+  code-defined edges and worker state handoff; Pydantic AI multi-agent docs
+  establish delegation, programmatic hand-off, typed outputs, and usage sharing.
+  Exact URLs are in ADR-1. Scores are design judgments, not runtime benchmarks.
+- **Limits:** E2 ordering is prompt-directed, not a deterministic graph. Child
+  step budgets are separate. Source/configuration checks do not prove runtime
+  permission enforcement, tool order, or model availability. Chase GO, flight,
+  sanitized evidence, completion attestation, and publication remain pending.
+
+## 2026-10-29 — E2 preparation freeze and TP2 evidence correction
+
+- **Request:** Continue E2 from its preparation state toward a Chase-reviewable
+  card; no flight and no GO were requested or available.
+- **Correction found:** The draft TP2 required an attempted Task call rejected by
+  the runtime, but OpenCode documents that a `permission.task` deny removes the
+  target from the Task tool description, so a compliant primary may make no
+  attempt. Requiring an attempt would contradict the documented behavior and
+  invite fabricated rejection evidence.
+- **Change:** TP2 now requires three things for PASS: a frozen preflight showing
+  the probe resolves as a real subagent while the primary's task rules deny it;
+  confirmed non-execution (no probe child session, no successful probe Task
+  record, no `E2_DENIED_DELEGATE_EXECUTED` marker); and either no attempt or an
+  attempted runtime rejection. A bare self-refusal or target-not-found error
+  alone remains inconclusive. The card, runbook, evidence instructions, ADR-1,
+  design analysis, governance ADR, and both briefs were made consistent.
+- **Preflight observed:** `opencode --version` returned `1.18.21`;
+  `opencode models opencode` lists `opencode/big-pickle`; `opencode debug agent` resolves the
+  primary/workers/probe modes, steps, and task rules as declared; `opencode debug
+  config` shows default agent `mentalysis`, sharing disabled, no plugins/MCP, and
+  no top-level permission override. Host Windows 11 `10.0.26200`, PowerShell
+  `5.1.26100.9711`, Git `2.52.0.windows.1`, gzkit `0.34.7`, uv `0.12.17`.
+- **Validation:** Nine governance scopes, fidelity-presence, and both authored
+  briefs passed. These are structural/configuration checks, not runtime proof.
+- **Outcome:** Card and log are frozen for Chase review with the preparation SHA
+  recorded in the follow-up commit. No model sortie, GO, signature, flight
+  verdict, or completion attestation is claimed.
