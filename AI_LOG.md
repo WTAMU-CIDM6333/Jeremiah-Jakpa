@@ -210,12 +210,42 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   `d429e179154db0b8ab8a6cb7594646594121d0cb`; the commit-locus recorder emitted
   four artifact-edit events, committed as `681f88b`. A TP2 wording reconciliation
   followed in `2d5b9cdc6fb3d4234f89fcf494cc81b532466fad` (three artifact-edit
-  events, `99fe27e`). The final frozen preparation baseline is `2d5b9cd`; the
-  re-freeze commit records it. No model sortie, GO, signature, flight verdict, or
-  completion attestation is claimed.
+  events, `99fe27e`). The preparation baseline at that point was `2d5b9cd`; the
+  re-freeze commit recorded it. A later review reconciliation supersedes it (see
+  the review-reconciliation entry below). No model sortie, GO, signature, flight
+  verdict, or completion attestation is claimed.
 - **Publication:** `git push origin main` advanced `3ea3cbb..f5396a9` and later
   reached `99fe27e`; `git ls-remote origin refs/heads/main` confirmed the pushed
   SHA each time. PowerShell reported git's stderr progress as a
   NativeCommandError with exit code 1 even though the ref update succeeded; the
   remote SHA is the authority here. The earlier `.git/FETCH_HEAD` permission
   note was not reproduced by these pushes.
+
+## 2026-10-29 — E2 preparation review reconciliation (AI reviewer)
+
+- **Reviewer:** "GPT-6 (Codex)", an AI reviewer and explicitly **not a human
+  Chase**. Its verdict is preparation review only; it is not a human signature,
+  GO, or attestation. No flight was run and no flight evidence was reviewed.
+- **Verdict received:** NO-GO at 2026-10-29 17:24 CDT (UTC−05:00), with one
+  blocking finding and all other findings passing.
+- **Finding:** `design/adr/pre-release/ADR-0.2.0-mentalysis-e2/ADR-0.2.0-mentalysis-e2.md`,
+  Consequences → Negative, still said "The model may refuse to attempt the probe,
+  leaving TP2 inconclusive." That unqualified sentence contradicted the same
+  ADR's Decision and the flight card's TP2 rule, which allow PASS without an
+  attempt when the frozen deny rule and confirmed non-execution are established.
+- **Fix:** Replaced that sentence with the reviewer's proposed wording: "A
+  refusal or non-attempt without the frozen deny-rule snapshot and confirmed
+  non-execution leaves TP2 inconclusive; with that corroboration, no attempt is
+  acceptable." A repository-wide check found no other unqualified instance.
+- **Re-verification:** Nine governance scopes, fidelity-presence, and
+  `uv run gz obpi validate --adr ADR-0.2.0 --authored` (2/2) passed;
+  `git diff --check` was clean. These remain structural checks, not runtime
+  proof.
+- **Outcome:** Reconciliation commit
+  `abdc817add2390e4643d84a5eb2f27d08979324e` (one artifact-edit event, committed
+  as `0aec7b1`). The revised preparation baseline for re-review is `abdc817`;
+  the card and log were re-frozen on it. E2 remains NOT FLOWN with an unsigned
+  GO field. The package goes back to the AI reviewer for a new GO/NO-GO; no
+  TP1/TP2 execution occurs before a committed, dated GO. Whether an AI reviewer
+  satisfies the assignment's Chase requirement is still unconfirmed by the
+  instructor.
