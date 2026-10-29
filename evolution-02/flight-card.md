@@ -29,7 +29,8 @@ primary synthesis. The primary cannot call a subagent its task permissions deny.
 ## SUBSTRATE
 
 - Repository: https://github.com/WTAMU-CIDM6333/Jeremiah-Jakpa
-- E2 preparation commit: `d429e179154db0b8ab8a6cb7594646594121d0cb`. This
+- E2 preparation commit: `2d5b9cdc6fb3d4234f89fcf494cc81b532466fad`
+  (initial package `d429e17`; TP2 wording reconciled in `2d5b9cd`). This
   subsequent card-freeze change identifies the tested system baseline. Record
   the card-freeze, GO, and actual flight commits separately in the log; require
   no intervening system/configuration changes.

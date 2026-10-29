@@ -22,9 +22,11 @@ runtime ABORT is claimed.
 - Validation: nine governance scopes, fidelity-presence, and both authored
   briefs passed. These checks prove document structure and resolved
   configuration, not runtime behavior.
-- Preparation commit: `d429e179154db0b8ab8a6cb7594646594121d0cb`; its
-  artifact-edit ledger events were committed in `681f88b`. This card-freeze
-  commit follows both and is the baseline Chase reviews.
+- Preparation commit: `2d5b9cdc6fb3d4234f89fcf494cc81b532466fad` (initial
+  package `d429e17`; TP2 wording reconciled in `2d5b9cd`). Ledger events for the
+  initial package and the reconciliation were committed in `681f88b` and
+  `99fe27e`. This card-freeze commit follows them and is the baseline Chase
+  reviews.
 
 ## Preflight record (after committed GO)
 

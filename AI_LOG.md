@@ -206,13 +206,16 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   `5.1.26100.9711`, Git `2.52.0.windows.1`, gzkit `0.34.7`, uv `0.12.17`.
 - **Validation:** Nine governance scopes, fidelity-presence, and both authored
   briefs passed. These are structural/configuration checks, not runtime proof.
-- **Outcome:** Preparation commit `d429e179154db0b8ab8a6cb7594646594121d0cb`;
-  the commit-locus recorder emitted four artifact-edit events, committed as
-  `681f88b`. The card-freeze commit is `f5396a9`. The card and log are frozen
-  for Chase review with that baseline. No model sortie, GO, signature, flight
-  verdict, or completion attestation is claimed.
-- **Publication:** `git push origin main` advanced `3ea3cbb..f5396a9`, and
-  `git ls-remote origin refs/heads/main` confirmed `f5396a9`. PowerShell
-  reported git's stderr progress as a NativeCommandError with exit code 1 even
-  though the ref update succeeded; the remote SHA is the authority here. The
-  earlier `.git/FETCH_HEAD` permission note was not reproduced by this push.
+- **Outcome:** Initial preparation commit
+  `d429e179154db0b8ab8a6cb7594646594121d0cb`; the commit-locus recorder emitted
+  four artifact-edit events, committed as `681f88b`. A TP2 wording reconciliation
+  followed in `2d5b9cdc6fb3d4234f89fcf494cc81b532466fad` (three artifact-edit
+  events, `99fe27e`). The final frozen preparation baseline is `2d5b9cd`; the
+  re-freeze commit records it. No model sortie, GO, signature, flight verdict, or
+  completion attestation is claimed.
+- **Publication:** `git push origin main` advanced `3ea3cbb..f5396a9` and later
+  reached `99fe27e`; `git ls-remote origin refs/heads/main` confirmed the pushed
+  SHA each time. PowerShell reported git's stderr progress as a
+  NativeCommandError with exit code 1 even though the ref update succeeded; the
+  remote SHA is the authority here. The earlier `.git/FETCH_HEAD` permission
+  note was not reproduced by these pushes.
