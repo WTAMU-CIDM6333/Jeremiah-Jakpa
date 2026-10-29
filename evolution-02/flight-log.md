@@ -1,7 +1,8 @@
 # E2 — Sortie 2 flight log
 
-Status: NOT FLOWN. Preparation frozen for Chase review; no runtime verdict earned.
-Administrative note, 2026-10-25: Chase unavailable; GO and flight await review.
+Status: NOT FLOWN. Chase GO recorded (AI-authored); no runtime verdict earned.
+Administrative note, 2026-10-25: Chase unavailable at preparation time. An AI
+reviewer returned GO on 2026-10-29; flight still awaits an actual sortie.
 
 ## Preparation freeze — 2026-10-29 (not a flight event)
 
@@ -28,9 +29,24 @@ runtime ABORT is claimed.
   the review fix were committed in `681f88b`, `99fe27e`, and `0aec7b1`. This
   card-freeze commit follows them and is the baseline Chase reviews.
 
+## Chase GO — 2026-10-29 (preparation review, AI-authored)
+
+- Reviewer: GPT-6 (Codex), an AI reviewer and explicitly not a human Chase.
+- Reviewed snapshot: `bfb5abf9ae4ff1bfe935579c7afdddac37270054`; revised artifact
+  baseline `abdc817add2390e4643d84a5eb2f27d08979324e`.
+- Verdict: `GO — GPT-6 (Codex), AI reviewer, not a human — 2026-10-29 17:32 CDT (UTC−05:00)`.
+- Scope: preparation only. No flight was run and no flight evidence was reviewed.
+- Prior round: `NO-GO — GPT-6 (Codex), AI reviewer, not a human — 2026-10-29 17:24
+  CDT (UTC−05:00)` for the ADR Consequences → Negative contradiction, fixed in
+  `abdc817` and re-verified before re-review.
+- Standing: AI-authored GO. It is not a human signature, a flight verdict, or an
+  instructor confirmation. The operator's position is that the AI reviewer
+  satisfies the assignment's Chase requirement; that is an operator assertion.
+
 ## Preflight record (after committed GO)
 
-- Pilot / Chase / UTC start: pending.
+- Pilot: Jeremiah Jakpa. Chase: GPT-6 (Codex), AI reviewer (not a human). UTC
+  start: pending.
 - Preparation / card-freeze / GO / actual flight commit: pending.
 - OpenCode version / effective primary and worker models / budgets: pending.
 - Frozen permission/tool snapshot and clean-worktree observation: pending.

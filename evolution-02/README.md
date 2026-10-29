@@ -1,10 +1,12 @@
 # E2 — Mentalysis orchestrator–workers
 
-Status: PREPARED FOR CHASE REVIEW; NOT FLOWN. E1 Chase review is deferred because
-the partner is unavailable. The operator authorized E2 preparation as a
+Status: CHASE GO RECORDED (AI-authored); NOT FLOWN. E1 Chase review is deferred
+because the partner is unavailable. The operator authorized E2 preparation as a
 sequencing deviation; E1 completion and instructor approval are not implied.
 The preparation substrate was frozen on 2026-10-29 (OpenCode `1.18.21`,
 `opencode/big-pickle`, resolved agent/task rules, Windows 11 / PowerShell 5.1).
+The GO was returned by an AI reviewer, not a human; the operator's position is
+that this satisfies the assignment's Chase requirement.
 
 ## What is built
 
@@ -32,7 +34,8 @@ or changing agent files so configuration reloads.
    The card's version, model-listing, resolved-agent, host, and effective-config
    fields are filled from the 2026-10-29 preflight. The preparation commit SHA is
    recorded in the follow-up card-freeze commit; no SHA is invented here.
-5. When the Chase returns, obtain a committed dated GO on the completed card.
+5. Obtain a committed dated GO on the completed card before any execution. The
+   recorded GO is AI-authored, not a human signature.
 6. Run TP1 and TP2 in fresh sessions using the exact prompts on the card;
    export the actual parent and required child sessions with `--sanitize`.
 7. Fill the log with actual evidence and PASS/FAIL/ABORT, then obtain CHASE review.

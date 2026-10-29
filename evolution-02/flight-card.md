@@ -1,7 +1,7 @@
 # E2 — Sortie 2 flight card
 
-Status: PREPARED FOR CHASE REVIEW — preparation substrate fixed below; reviewer identity and GO pending.
-Prepared: 2026-10-25. Frozen: 2026-10-29. Pilot: Jeremiah Jakpa. Chase: awaiting availability/identity.
+Status: CHASE GO RECORDED — AI-authored; NOT FLOWN. Preparation substrate fixed below.
+Prepared: 2026-10-25. Frozen: 2026-10-29. Pilot: Jeremiah Jakpa. Chase: GPT-6 (Codex), AI reviewer — not a human.
 
 ## ENVELOPE
 
@@ -149,6 +149,19 @@ invent success. Before-flight deferral is NOT FLOWN, not a runtime ABORT.
 
 ## CHASE GO
 
-Unsigned. Chase must append `GO — <name> — <actual date/time with timezone>` or
+Recorded. Preparation package reviewed at snapshot
+`bfb5abf9ae4ff1bfe935579c7afdddac37270054`.
+
+> GO — GPT-6 (Codex), AI reviewer, not a human — 2026-10-29 17:32 CDT (UTC−05:00)
+
+This GO is AI-authored. It is not a human signature, a flight verdict, or an
+instructor confirmation. The operator's position is that the AI reviewer
+satisfies the assignment's Chase requirement; that is an operator assertion, not
+an instructor attestation. Review scope was preparation only: no flight was run
+and no flight evidence was reviewed. The prior round returned NO-GO at
+2026-10-29 17:24 CDT on the ADR Consequences contradiction, which was fixed in
+`abdc817`; findings are recorded in `flight-log.md`.
+
+Chase must append `GO — <name> — <actual date/time with timezone>` or
 `NO-GO — <name> — <actual date/time with timezone> — <field to fix>` after the
 card is complete and committed, before either test runs.
