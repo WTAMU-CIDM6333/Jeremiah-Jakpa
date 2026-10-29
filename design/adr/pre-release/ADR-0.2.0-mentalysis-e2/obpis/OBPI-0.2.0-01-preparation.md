@@ -123,7 +123,7 @@ Manually review all thirteen allowed files. Compare TP1 text with E1 verbatim; i
 
 ## Demo
 
-Walk the reviewer through the primary-to-calculation-to-assumptions handoff, then show the denied probe's definition and its absence from the primary allowlist. Show the unchanged arithmetic question, pending log, unsigned new card, and sourced comparison. Explain why a refused attempt cannot prove a tool rejection; do not execute the demonstration as a sortie.
+Walk the reviewer through the primary-to-calculation-to-assumptions handoff, then show the denied probe's definition and its absence from the primary allowlist. Show the unchanged arithmetic question, pending log, unsigned new card, and sourced comparison. Explain why a bare refusal cannot establish the boundary without the frozen deny rule and confirmed non-execution; do not execute the demonstration as a sortie.
 
 ## Acceptance Criteria
 

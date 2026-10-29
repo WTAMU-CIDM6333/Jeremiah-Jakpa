@@ -137,7 +137,7 @@ The final answer claims sequential delegation although no tools ran, or self-ref
 
 ### What Would Have to Be True
 
-The installed harness must resolve the configured agents and permissions, and exports must retain attempted tool calls and rejection details. Visibility of a denied attempt is the weakest assumption and must be measured after approval.
+The installed harness must resolve the configured agents and permissions, the preflight must capture the deny rule, and exports/session records must establish probe non-execution. If an attempt occurs, its rejection detail must be visible; if none occurs, the deny rule plus non-execution is the evidence. Both are measured after approval.
 
 ### Constraint Archaeology
 
@@ -149,7 +149,7 @@ Prompt-directed sequencing is fallible. A configured task denial removes the tar
 
 ### The 2am Operator Question
 
-Retain the signed card chronology, resolved configuration, session identifiers, exact prompts, worker inputs/returns, rejection record, timestamps, and export hashes so a reviewer can reconstruct the outcome.
+Retain the signed card chronology, resolved configuration, session identifiers, exact prompts, worker inputs/returns, the deny-rule snapshot, rejection or non-execution evidence, timestamps, and export hashes so a reviewer can reconstruct the outcome.
 
 ### Reversibility
 

@@ -30,7 +30,7 @@ Source: `design/adr/pre-release/ADR-0.2.0-mentalysis-e2/ADR-0.2.0-mentalysis-e2.
 
 ## Objective
 
-After preparation review and a new signed E2 Chase GO, capture one bounded sortie showing the actual calculation-to-assumptions tool sequence and arithmetic result, plus a separately observed denied-probe attempt. Preserve failures and inconclusive observations as evidence, not successful enforcement claims.
+After preparation review and a new signed E2 Chase GO, capture one bounded sortie showing the actual calculation-to-assumptions tool sequence and arithmetic result, plus a separately observed denied-probe boundary: either no attempt with the frozen deny rule and confirmed non-execution, or an attempted call rejected by the runtime. Preserve failures and inconclusive observations as evidence, not successful enforcement claims.
 
 ## Lane
 
@@ -145,7 +145,7 @@ Rechecked 2026-10-29 after preparation existed: the nine-scope governance valida
 
 ### Gate 2 (Verification)
 
-Pending actual newly approved sortie and exported-evidence review. No successful handoff or permission rejection is claimed.
+Pending actual newly approved sortie and exported-evidence review. No successful handoff or permission-boundary outcome is claimed.
 
 ### Gate 5 (Human)
 
@@ -157,7 +157,7 @@ Before: a prompt and permission configuration express intent only. After authori
 
 ### Key Proof
 
-Pending raw export of ordered calculation/assumptions calls and the attempted denied probe call. A self-refusal string cannot substitute for the latter.
+Pending raw export of ordered calculation/assumptions calls plus the frozen deny-rule snapshot and probe non-execution evidence (or an attempted call's rejection). A self-refusal string cannot substitute for those.
 
 ## Tracked Defects
 
