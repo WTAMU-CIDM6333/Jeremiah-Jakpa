@@ -76,6 +76,9 @@ runtime ABORT is claimed.
 - Classification: environment/provider failure, not a test-point result. This
   attempt cannot support or refute the design claim.
 - Re-flight requires a fresh dated GO; this ABORT does not authorize a retry.
+- Provider re-check at 2026-10-29 17:50:48 CDT (`opencode run --agent
+  mentalysis-e2 "reply OK"`) also returned `401 Invalid credential`. The
+  blocker persists; no credential was fixed between attempts.
 
 ## Test-point observations
 
