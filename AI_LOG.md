@@ -206,6 +206,8 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   `5.1.26100.9711`, Git `2.52.0.windows.1`, gzkit `0.34.7`, uv `0.12.17`.
 - **Validation:** Nine governance scopes, fidelity-presence, and both authored
   briefs passed. These are structural/configuration checks, not runtime proof.
-- **Outcome:** Card and log are frozen for Chase review with the preparation SHA
-  recorded in the follow-up commit. No model sortie, GO, signature, flight
-  verdict, or completion attestation is claimed.
+- **Outcome:** Preparation commit `d429e179154db0b8ab8a6cb7594646594121d0cb`;
+  the commit-locus recorder emitted four artifact-edit events, committed as
+  `681f88b`. The card and log are frozen for Chase review with that baseline.
+  No model sortie, GO, signature, flight verdict, or completion attestation is
+  claimed.

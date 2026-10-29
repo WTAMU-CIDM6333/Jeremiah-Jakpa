@@ -22,7 +22,9 @@ runtime ABORT is claimed.
 - Validation: nine governance scopes, fidelity-presence, and both authored
   briefs passed. These checks prove document structure and resolved
   configuration, not runtime behavior.
-- The preparation commit SHA is recorded in the follow-up card-freeze commit.
+- Preparation commit: `d429e179154db0b8ab8a6cb7594646594121d0cb`; its
+  artifact-edit ledger events were committed in `681f88b`. This card-freeze
+  commit follows both and is the baseline Chase reviews.
 
 ## Preflight record (after committed GO)
 

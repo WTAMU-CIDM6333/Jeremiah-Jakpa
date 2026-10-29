@@ -29,10 +29,10 @@ primary synthesis. The primary cannot call a subagent its task permissions deny.
 ## SUBSTRATE
 
 - Repository: https://github.com/WTAMU-CIDM6333/Jeremiah-Jakpa
-- E2 preparation commit: PENDING authorized preparation commit; the follow-up
-  card-freeze commit records this SHA. Record the card-freeze, GO, and actual
-  flight commits separately in the log; require no intervening
-  system/configuration changes.
+- E2 preparation commit: `d429e179154db0b8ab8a6cb7594646594121d0cb`. This
+  subsequent card-freeze change identifies the tested system baseline. Record
+  the card-freeze, GO, and actual flight commits separately in the log; require
+  no intervening system/configuration changes.
 - E1 published baseline: `d0743be8acf896b6a1fd1af97a172f53475f22d2` (not E2 substrate).
 - OpenCode: `1.18.21` rechecked 2026-10-29; export help confirms `--sanitize`.
 - Model: `opencode/big-pickle` for primary, workers, and probe; listed by
