@@ -1,8 +1,12 @@
 # E2 evidence
 
-No E2 sortie has run. Do not create placeholder session exports.
+One flight attempt ran on 2026-10-29 and ABORTED on a provider authentication
+error before any Task call. `tp1-parent.sanitized.json` is that failed attempt,
+not a TP1 observation; it contains no assistant text and no tool records. The two
+`tp2-preflight-*.txt` files are the frozen deny-rule snapshot taken before the
+attempt. No TP2 session exists, and no placeholder export is present.
 
-After committed Chase GO, retain original sanitized exports:
+After a committed Chase GO, retain original sanitized exports:
 
 - `tp1-parent.sanitized.json`
 - `tp2-parent.sanitized.json`

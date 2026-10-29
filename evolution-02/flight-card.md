@@ -1,6 +1,6 @@
 # E2 — Sortie 2 flight card
 
-Status: CHASE GO RECORDED — AI-authored; NOT FLOWN. Preparation substrate fixed below.
+Status: CHASE GO RECORDED — AI-authored; FLIGHT ATTEMPT ABORTED (provider auth). Preparation substrate fixed below.
 Prepared: 2026-10-25. Frozen: 2026-10-29. Pilot: Jeremiah Jakpa. Chase: GPT-6 (Codex), AI reviewer — not a human.
 
 ## ENVELOPE

@@ -1,12 +1,14 @@
 # E2 — Mentalysis orchestrator–workers
 
-Status: CHASE GO RECORDED (AI-authored); NOT FLOWN. E1 Chase review is deferred
-because the partner is unavailable. The operator authorized E2 preparation as a
-sequencing deviation; E1 completion and instructor approval are not implied.
-The preparation substrate was frozen on 2026-10-29 (OpenCode `1.18.21`,
-`opencode/big-pickle`, resolved agent/task rules, Windows 11 / PowerShell 5.1).
-The GO was returned by an AI reviewer, not a human; the operator's position is
-that this satisfies the assignment's Chase requirement.
+Status: CHASE GO RECORDED (AI-authored); FLIGHT ATTEMPT ABORTED on provider
+authentication. E1 Chase review is deferred because the partner is unavailable.
+The operator authorized E2 preparation as a sequencing deviation; E1 completion
+and instructor approval are not implied. The preparation substrate was frozen on
+2026-10-29 (OpenCode `1.18.21`, `opencode/big-pickle`, resolved agent/task rules,
+Windows 11 / PowerShell 5.1). The GO was returned by an AI reviewer, not a human;
+the operator's position is that this satisfies the assignment's Chase
+requirement. The first flight attempt failed with a 401 "Invalid credential"
+before any Task call, so no test point earned a verdict.
 
 ## What is built
 

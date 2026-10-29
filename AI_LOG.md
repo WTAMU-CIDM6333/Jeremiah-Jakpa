@@ -268,6 +268,30 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   assertion, not an instructor attestation. It is recorded as such on the card
   and in the flight log.
 - **Outcome:** GO recorded on `evolution-02/flight-card.md` and
-  `evolution-02/flight-log.md`; the sortie itself is still **NOT FLOWN** with no
-  PASS/FAIL/ABORT, evidence, or completion attestation. Execution requires
-  separate operator authorization.
+  `evolution-02/flight-log.md`; the sortie itself was still **NOT FLOWN** at that
+  point, with no PASS/FAIL/ABORT, evidence, or completion attestation.
+
+## 2026-10-29 — E2 flight attempt ABORT (provider authentication)
+
+- **Authorization:** Operator directed the sortie after the AI-authored GO, so I
+  began with TP1 as the card orders.
+- **Attempt:** `opencode run --agent mentalysis-e2 --format json --title "E2 TP1
+  ordered workflow"` with the card's exact TP1 prompt, in a fresh session
+  `ses_e762dd8a5ffeFWBmPyvl3m41PC`. Window 17:40:10–17:41:28 CDT.
+- **Observed failure:** `APIError` 401, "Upstream request failed: Invalid
+  credential", `isRetryable: false`, from
+  `https://opencode.ai/inference/openai/v1/chat/completions`. `opencode auth list`
+  shows three stored credentials, so the credential is present but rejected
+  upstream.
+- **What did not happen:** no assistant text, no Task record, no worker child
+  session, and no TP2 session. The abort fired before any tool call.
+- **Classification:** runtime **ABORT**, not PASS or FAIL. The design claim is
+  neither supported nor refuted. No retry was attempted because the error is
+  non-retryable and the card forbids mid-sortie repair.
+- **Evidence:** `evolution-02/evidence/tp1-parent.sanitized.json` (SHA-256
+  `15613fc1d4c1d6eae33d2ebe69dc5a5ef3e7d0f041957f4edb0b8c64997d1537`) plus the
+  frozen preflight projections `tp2-preflight-primary.txt` and
+  `tp2-preflight-probe.txt`. No raw export and no edited export was committed.
+- **Outcome:** Log and card record the ABORT; TP1 is "not observed" and TP2 is
+  "not run". A re-flight needs a fresh dated GO. No completion attestation is
+  claimed.

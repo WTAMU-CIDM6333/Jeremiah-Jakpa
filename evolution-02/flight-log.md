@@ -1,8 +1,10 @@
 # E2 — Sortie 2 flight log
 
-Status: NOT FLOWN. Chase GO recorded (AI-authored); no runtime verdict earned.
+Status: ABORTED — provider authentication failure. Chase GO recorded
+(AI-authored); no PASS or FAIL verdict earned.
 Administrative note, 2026-10-25: Chase unavailable at preparation time. An AI
-reviewer returned GO on 2026-10-29; flight still awaits an actual sortie.
+reviewer returned GO on 2026-10-29; the first flight attempt aborted before any
+Task call and earned no test-point result.
 
 ## Preparation freeze — 2026-10-29 (not a flight event)
 
@@ -46,17 +48,41 @@ runtime ABORT is claimed.
 ## Preflight record (after committed GO)
 
 - Pilot: Jeremiah Jakpa. Chase: GPT-6 (Codex), AI reviewer (not a human). UTC
-  start: pending.
-- Preparation / card-freeze / GO / actual flight commit: pending.
-- OpenCode version / effective primary and worker models / budgets: pending.
-- Frozen permission/tool snapshot and clean-worktree observation: pending.
+  start: 2026-10-29 22:40:10 UTC (17:40:10 CDT).
+- Preparation `abdc817`; card-freeze `bfb5abf`; GO `e7f3155`; the commit that
+  adds this record is the actual flight-attempt commit.
+- OpenCode `1.18.21`; `opencode/big-pickle` resolved for primary, both workers,
+  and probe; budgets 5/3/3/1.
+- Frozen permission/tool snapshot: `evidence/tp2-preflight-primary.txt` and
+  `evidence/tp2-preflight-probe.txt`. Clean worktree at `e7f3155` before the
+  attempt.
+
+## Flight attempt — 2026-10-29 (ABORT)
+
+- Command: `opencode run --agent mentalysis-e2 --format json --title "E2 TP1
+  ordered workflow"` with the card's exact TP1 prompt.
+- Window: started 2026-10-29 17:40:10 CDT, ended 17:41:28 CDT.
+- Session: `ses_e762dd8a5ffeFWBmPyvl3m41PC`, agent `mentalysis-e2`, model
+  `opencode/big-pickle`.
+- Observed result: `APIError` status 401, message "Upstream request failed:
+  Invalid credential", `isRetryable: false`, URL
+  `https://opencode.ai/inference/openai/v1/chat/completions`. Exact record in
+  `evidence/tp1-parent.sanitized.json`.
+- No assistant text, no Task records, and no worker child sessions were created.
+- TP2 was not run: the card's ABORT rule stops the sortie on provider
+  authentication failure.
+- Deviation: no retry and no mid-sortie repair, because the error is
+  non-retryable and the frozen configuration forbids repair between tests.
+- Classification: environment/provider failure, not a test-point result. This
+  attempt cannot support or refute the design claim.
+- Re-flight requires a fresh dated GO; this ABORT does not authorize a retry.
 
 ## Test-point observations
 
 | Test | Parent/child sessions and timestamps | Evidence and SHA-256 | Actual Task records/order/status | Verdict |
 | --- | --- | --- | --- | --- |
-| TP1 ordered calculation and assumptions | Not run | Not generated | Not observed | Pending |
-| TP2 denied probe | Not run | Not generated | Not observed | Pending |
+| TP1 ordered calculation and assumptions | `ses_e762dd8a5ffeFWBmPyvl3m41PC`; 17:40:10–17:41:28 CDT; no children | `tp1-parent.sanitized.json` `15613fc1d4c1d6eae33d2ebe69dc5a5ef3e7d0f041957f4edb0b8c64997d1537` | None; request failed before any tool call | ABORT (not observed) |
+| TP2 denied probe | Not run | `tp2-preflight-primary.txt` `a11c2278a939d9824fb9e1fd62a44c687d0ad41da128191b818ac61d64edd6c8`; `tp2-preflight-probe.txt` `17c1e5e673e79a138090abb555f1fc58fe4de98b559dd78d9c8d956ec6e46b01` | Not observed | Not run (ABORT) |
 
 For TP1 cite both worker dispatch/return records and the calculation-result
 handoff to assumptions. For TP2 record the frozen deny rule, whether any probe
@@ -68,10 +94,12 @@ parent/child iterations separately, deviations, and retries.
 
 ## Sortie verdict
 
-Pending flight. Enter PASS, FAIL, or ABORT only from actual evidence. Individual
-test points may be recorded as PASS, FAIL, or INCONCLUSIVE; any non-PASS test
-point prevents a sortie PASS. A correct numerical answer alone does not prove the
-pattern or its task permission gate.
+ABORT — provider authentication failure before any Task call. TP1 was not
+observed and TP2 was not run; neither test point earned PASS or FAIL. This
+attempt does not support or refute the design claim. Enter PASS, FAIL, or ABORT
+only from actual evidence. Individual test points may be recorded as PASS, FAIL,
+or INCONCLUSIVE; any non-PASS test point prevents a sortie PASS. A correct
+numerical answer alone does not prove the pattern or its task permission gate.
 
 ## Chase evidence review
 

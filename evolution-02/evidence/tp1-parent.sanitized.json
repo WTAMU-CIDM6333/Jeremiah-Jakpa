@@ -1,0 +1,135 @@
+{
+  "info": {
+    "id": "ses_e762dd8a5ffeFWBmPyvl3m41PC",
+    "slug": "proud-pixel",
+    "projectID": "1a6163f85ea2499840b0c844f91e7d19fd77acd2",
+    "directory": "[redacted:session-directory:ses_e762dd8a5ffeFWBmPyvl3m41PC]",
+    "path": "",
+    "title": "[redacted:session-title:ses_e762dd8a5ffeFWBmPyvl3m41PC]",
+    "agent": "mentalysis-e2",
+    "model": {
+      "id": "big-pickle",
+      "providerID": "opencode",
+      "variant": "default"
+    },
+    "version": "1.18.21",
+    "summary": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 0
+    },
+    "cost": 0,
+    "tokens": {
+      "input": 0,
+      "output": 0,
+      "reasoning": 0,
+      "cache": {
+        "read": 0,
+        "write": 0
+      }
+    },
+    "permission": [
+      {
+        "permission": "question",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "plan_enter",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "plan_exit",
+        "pattern": "*",
+        "action": "deny"
+      }
+    ],
+    "time": {
+      "created": 1793313613658,
+      "updated": 1793313616692
+    }
+  },
+  "messages": [
+    {
+      "info": {
+        "role": "user",
+        "time": {
+          "created": 1793313614090
+        },
+        "agent": "mentalysis-e2",
+        "model": {
+          "providerID": "opencode",
+          "modelID": "big-pickle"
+        },
+        "summary": {
+          "diffs": []
+        },
+        "id": "msg_189d2290a001uOVirObeCdCKgk",
+        "sessionID": "ses_e762dd8a5ffeFWBmPyvl3m41PC"
+      },
+      "parts": [
+        {
+          "type": "text",
+          "text": "[redacted:text:prt_189d2291c001AIWCJE7khNQFuu]",
+          "id": "prt_189d2291c001AIWCJE7khNQFuu",
+          "sessionID": "ses_e762dd8a5ffeFWBmPyvl3m41PC",
+          "messageID": "msg_189d2290a001uOVirObeCdCKgk"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_189d2290a001uOVirObeCdCKgk",
+        "role": "assistant",
+        "mode": "mentalysis-e2",
+        "agent": "mentalysis-e2",
+        "path": {
+          "cwd": "[redacted:cwd:msg_189d22e07001eNUks0JfEfVxQe]",
+          "root": "[redacted:root:msg_189d22e07001eNUks0JfEfVxQe]"
+        },
+        "cost": 0,
+        "tokens": {
+          "input": 0,
+          "output": 0,
+          "reasoning": 0,
+          "cache": {
+            "read": 0,
+            "write": 0
+          }
+        },
+        "modelID": "big-pickle",
+        "providerID": "opencode",
+        "time": {
+          "created": 1793313615367,
+          "completed": 1793313688380
+        },
+        "error": {
+          "name": "APIError",
+          "data": {
+            "message": "Upstream request failed: Invalid credential",
+            "statusCode": 401,
+            "isRetryable": false,
+            "responseHeaders": {
+              "cf-placement": "remote-IAD",
+              "cf-ray": "a525b0118c722049-MCI",
+              "connection": "keep-alive",
+              "content-length": "89",
+              "content-type": "application/json",
+              "date": "Thu, 29 Oct 2026 22:41:27 GMT",
+              "server": "cloudflare",
+              "x-opencode-log-id": "01a189d3-4720-7d67-a579-d52c4807023b"
+            },
+            "responseBody": "{\"error\":{\"type\":\"server_error\",\"message\":\"Upstream request failed: Invalid credential\"}}",
+            "metadata": {
+              "url": "https://opencode.ai/inference/openai/v1/chat/completions"
+            }
+          }
+        },
+        "id": "msg_189d22e07001eNUks0JfEfVxQe",
+        "sessionID": "ses_e762dd8a5ffeFWBmPyvl3m41PC"
+      },
+      "parts": []
+    }
+  ]
+}

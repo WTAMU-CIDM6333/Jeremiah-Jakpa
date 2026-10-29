@@ -1,0 +1,95 @@
+﻿# Projection of 'opencode debug agent mentalysis-e2-probe' captured 2026-10-29 17:39:51 -05:00 (UTC-05:00).
+# Omitted: 140 external_directory path rules (local filesystem paths only).
+# No task, edit, bash, or model rule omitted. Emitted mechanically from the CLI JSON; no other field altered.
+{
+    "name":  "mentalysis-e2-probe",
+    "mode":  "subagent",
+    "permission":  [
+                       {
+                           "permission":  "*",
+                           "action":  "allow",
+                           "pattern":  "*"
+                       },
+                       {
+                           "permission":  "doom_loop",
+                           "action":  "ask",
+                           "pattern":  "*"
+                       },
+                       {
+                           "permission":  "question",
+                           "action":  "deny",
+                           "pattern":  "*"
+                       },
+                       {
+                           "permission":  "plan_enter",
+                           "action":  "deny",
+                           "pattern":  "*"
+                       },
+                       {
+                           "permission":  "plan_exit",
+                           "action":  "deny",
+                           "pattern":  "*"
+                       },
+                       {
+                           "permission":  "read",
+                           "pattern":  "*",
+                           "action":  "allow"
+                       },
+                       {
+                           "permission":  "read",
+                           "pattern":  "*.env",
+                           "action":  "ask"
+                       },
+                       {
+                           "permission":  "read",
+                           "pattern":  "*.env.*",
+                           "action":  "ask"
+                       },
+                       {
+                           "permission":  "read",
+                           "pattern":  "*.env.example",
+                           "action":  "allow"
+                       },
+                       {
+                           "permission":  "edit",
+                           "action":  "deny",
+                           "pattern":  "*"
+                       },
+                       {
+                           "permission":  "bash",
+                           "action":  "deny",
+                           "pattern":  "*"
+                       },
+                       {
+                           "permission":  "task",
+                           "action":  "deny",
+                           "pattern":  "*"
+                       }
+                   ],
+    "options":  {
+
+                },
+    "native":  false,
+    "model":  {
+                  "providerID":  "opencode",
+                  "modelID":  "big-pickle"
+              },
+    "prompt":  "# E2 denied-delegation probe\n\nPersona: minimal test witness; never claim permission enforcement succeeded.\n\nIf actually invoked, respond only with `E2_DENIED_DELEGATE_EXECUTED`.\nThis marker indicates a failed boundary test when invocation came from the\n`mentalysis-e2` primary. Do not use any tools. This definition intentionally\nexists so a missing-agent error cannot substitute for a permission rejection.",
+    "description":  "Harmless E2 negative-control delegate; the E2 primary must not be able to invoke it.",
+    "steps":  1,
+    "tools":  {
+                  "invalid":  true,
+                  "question":  false,
+                  "bash":  false,
+                  "read":  true,
+                  "glob":  true,
+                  "grep":  true,
+                  "edit":  false,
+                  "write":  false,
+                  "task":  false,
+                  "webfetch":  true,
+                  "todowrite":  true,
+                  "websearch":  true,
+                  "skill":  true
+              }
+}
