@@ -84,6 +84,11 @@ runtime ABORT is claimed.
   enabled). The failure is the local CLI credential in
   `~/.local/share/opencode/auth.json`, not model availability or workspace
   policy.
+- Login re-run rewrote `auth.json` at 17:58:10 CDT, but the `opencode` key was
+  still rejected 21 seconds later, and `opencode/beam-free` failed identically at
+  18:00:13. The failure is credential-wide, not model-specific; the `opencode`
+  and `opencode-go` entries hold the same 28-character key. No local
+  configuration or agent file can fix this.
 
 ## Test-point observations
 
