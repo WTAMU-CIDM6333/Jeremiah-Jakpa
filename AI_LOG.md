@@ -208,6 +208,11 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   briefs passed. These are structural/configuration checks, not runtime proof.
 - **Outcome:** Preparation commit `d429e179154db0b8ab8a6cb7594646594121d0cb`;
   the commit-locus recorder emitted four artifact-edit events, committed as
-  `681f88b`. The card and log are frozen for Chase review with that baseline.
-  No model sortie, GO, signature, flight verdict, or completion attestation is
-  claimed.
+  `681f88b`. The card-freeze commit is `f5396a9`. The card and log are frozen
+  for Chase review with that baseline. No model sortie, GO, signature, flight
+  verdict, or completion attestation is claimed.
+- **Publication:** `git push origin main` advanced `3ea3cbb..f5396a9`, and
+  `git ls-remote origin refs/heads/main` confirmed `f5396a9`. PowerShell
+  reported git's stderr progress as a NativeCommandError with exit code 1 even
+  though the ref update succeeded; the remote SHA is the authority here. The
+  earlier `.git/FETCH_HEAD` permission note was not reproduced by this push.
