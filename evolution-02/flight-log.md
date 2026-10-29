@@ -79,6 +79,11 @@ runtime ABORT is claimed.
 - Provider re-check at 2026-10-29 17:50:48 CDT (`opencode run --agent
   mentalysis-e2 "reply OK"`) also returned `401 Invalid credential`. The
   blocker persists; no credential was fixed between attempts.
+- Console check at 17:52 CDT: workspace `Personal` has the built-in `OpenCode`
+  provider enabled, and `big-pickle` is enabled and available (41 of 83 models
+  enabled). The failure is the local CLI credential in
+  `~/.local/share/opencode/auth.json`, not model availability or workspace
+  policy.
 
 ## Test-point observations
 
