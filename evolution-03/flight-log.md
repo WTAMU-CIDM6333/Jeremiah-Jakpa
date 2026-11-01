@@ -4,8 +4,11 @@ Status: PREPARED — NOT FLOWN. No test point has earned a verdict.
 
 ## Preparation record — 2026-11-01 (not a flight event)
 
-- Preparation commit: `0972d4cc19262408d2b7e28f5ab5a65295ef98fa`. The next
-  commit records this freeze line and is the baseline the GO reviews.
+- Preparation commits: `0972d4c` (initial package), `d26d840` (first freeze),
+  `4c793ff` (round 1 review fixes). The configuration baseline is `4c793ff`, the
+  last commit touching `opencode.json` or the E3 agent. Verify with
+  `git log -1 --format=%H -- opencode.json .opencode/agents/mentalysis-e3.md`.
+  The freeze commit that records this line must change neither file.
 - OpenCode `1.18.21`; model `ollama/llama3.2:3b`; Ollama `0.40.4`; model present
   locally (2.0 GB) with a `tools` capability.
 - Resolved with `opencode debug agent mentalysis-e3`: `mode: primary`, steps 8,
@@ -63,6 +66,28 @@ Verdict: **NO-GO** on four fields:
 
 The package was re-frozen after these fixes and submitted to a new independent
 review. No GO was in force during round 1, so no test ran.
+
+## Independent review round 2 — NO-GO (2026-11-01 12:15 CST)
+
+Reviewer: AI reviewer (Big Pickle subagent), not a human. Baseline reviewed:
+`4c793ffe2d78d675a6d07dcacae3324e37d1c5ee`. No model sortie was run and no file
+was modified by the reviewer.
+
+Verdict: **NO-GO** on the freeze baseline.
+
+- All four round 1 fields were confirmed resolved.
+- Blocking field: the card and log still named `0972d4c`/`d26d840` as the
+  baseline, but `4c793ff` changed `opencode.json` after `d26d840`. A GO would
+  have authorized flight against the wrong baseline.
+- Secondary note: the design analysis said E1/E2 "agent-level deny rules still
+  take precedence"; E1 has no agent-level deny rules, so the global policy also
+  changes E1's effective behavior. Fixed by stating that accurately.
+
+Fix: the card and log now define the configuration baseline as `4c793ff`, the
+last commit touching `opencode.json` or the E3 agent, verifiable with
+`git log -1 --format=%H -- opencode.json .opencode/agents/mentalysis-e3.md`. The
+freeze commit records this line and must change neither file. The analysis wording
+was corrected. No GO was in force during round 2, so no test ran.
 
 ## Preflight record (after committed GO)
 

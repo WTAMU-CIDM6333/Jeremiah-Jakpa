@@ -31,9 +31,14 @@ A bash command outside the allowlist fails with an error status.
 ## SUBSTRATE
 
 - Repository: https://github.com/WTAMU-CIDM6333/Jeremiah-Jakpa
-- E3 preparation commit: `0972d4cc19262408d2b7e28f5ab5a65295ef98fa`. The
-  card-freeze commit that adds this line is the configuration baseline the GO
-  reviews; require no intervening configuration or agent change before flight.
+- Configuration baseline: `4c793ffe2d78d675a6d07dcacae3324e37d1c5ee`, the last
+  commit that changed `opencode.json` or `.opencode/agents/mentalysis-e3.md`.
+  Verify with `git log -1 --format=%H -- opencode.json
+  .opencode/agents/mentalysis-e3.md`. The freeze commit that adds this line must
+  change neither file. Require no configuration or agent change between
+  `4c793ff` and flight; any such change invalidates the GO.
+- Preparation commits: `0972d4c` (initial package), `d26d840` (first freeze),
+  `4c793ff` (round 1 review fixes and re-freeze).
 - OpenCode: `1.18.21`.
 - Model: `ollama/llama3.2:3b`, served locally at `http://localhost:11434/v1`.
   `ollama list` shows `llama3.2:3b` (2.0 GB); `ollama show` reports a `tools`

@@ -81,9 +81,10 @@ record, is INCONCLUSIVE.
 - A clean worktree is necessary but not sufficient for TP3; the mechanism must be
   named.
 - The permission policy is global in `opencode.json`, so it also applies to the
-  E1 and E2 agents in this checkout. Their agent-level deny rules still take
-  precedence, but their effective configuration should be rechecked before any
-  re-flight.
+  E1 and E2 agents in this checkout. E2's workers deny edits and bash at the
+  agent level, but the E1 `mentalysis` agent has no agent-level deny rules, so the
+  global `edit: ask` and bash deny change its effective behavior too. Recheck the
+  resolved configuration before any E1 or E2 re-flight.
 - E3 changes `opencode.json`, which E2's freeze declared unchanged. E2's freeze
   is superseded, not silently preserved.
 

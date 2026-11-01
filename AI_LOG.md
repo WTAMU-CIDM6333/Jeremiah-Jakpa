@@ -371,6 +371,13 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   have asked under a bare `read: allow`; and `git log *`/`git diff *` could write
   through `--output`. All four were fixed, and the package was re-frozen for a
   new review. No GO was in force, so no test ran.
+- **Independent review round 2:** a second AI review returned NO-GO at
+  `4c793ff` because the card and log still named `0972d4c`/`d26d840` as the
+  baseline after `4c793ff` changed `opencode.json`. Fixed by defining the
+  configuration baseline as `4c793ff`, the last commit touching `opencode.json`
+  or the E3 agent, and requiring the freeze commit to change neither file. The
+  analysis wording about E1/E2 agent-level precedence was also corrected. No test
+  ran.
 - **Environment note:** a nested `opencode run` through the parent session's
   shell restarted the parent server twice. Probes were relaunched as detached
   processes. This is recorded as a harness interaction, not as evidence.
