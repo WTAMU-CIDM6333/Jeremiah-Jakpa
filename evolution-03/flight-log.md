@@ -4,6 +4,8 @@ Status: PREPARED — NOT FLOWN. No test point has earned a verdict.
 
 ## Preparation record — 2026-11-01 (not a flight event)
 
+- Preparation commit: `0972d4cc19262408d2b7e28f5ab5a65295ef98fa`. The next
+  commit records this freeze line and is the baseline the GO reviews.
 - OpenCode `1.18.21`; model `ollama/llama3.2:3b`; Ollama `0.40.4`; model present
   locally (2.0 GB) with a `tools` capability.
 - Resolved with `opencode debug agent mentalysis-e3`: `mode: primary`, steps 8,

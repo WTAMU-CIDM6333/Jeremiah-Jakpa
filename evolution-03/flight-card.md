@@ -30,9 +30,9 @@ A bash command outside the allowlist fails with an error status.
 ## SUBSTRATE
 
 - Repository: https://github.com/WTAMU-CIDM6333/Jeremiah-Jakpa
-- E3 preparation commit: recorded in `flight-log.md` at freeze. The commit that
-  adds this card is the configuration baseline the GO reviews; require no
-  intervening configuration or agent change before flight.
+- E3 preparation commit: `0972d4cc19262408d2b7e28f5ab5a65295ef98fa`. The
+  card-freeze commit that adds this line is the configuration baseline the GO
+  reviews; require no intervening configuration or agent change before flight.
 - OpenCode: `1.18.21`.
 - Model: `ollama/llama3.2:3b`, served locally at `http://localhost:11434/v1`.
   `ollama list` shows `llama3.2:3b` (2.0 GB); `ollama show` reports a `tools`
