@@ -35,7 +35,7 @@ E2 remains ABORTED on a hosted-provider `401 Invalid credential`. E3 does not de
 - E1 `.opencode/agents/mentalysis.md`, the E2 agent files, E1 and E2 artifacts, `docs/PRD.md`, and `design/prd/PRD-MENTALYSIS-1.0.0.md` remain unchanged.
 - E3 edits `opencode.json`, which E2's frozen baseline declared unchanged. This supersedes E2's configuration freeze: any E2 re-flight requires a new freeze and a fresh GO. E3 does not claim E2 completion.
 - The permission gate is never weakened to obtain a pass. `edit` stays `ask`; bash stays deny-by-default; the allowlist contains only read-only inspection commands.
-- Preparation does not authorize model execution. A frozen card and a committed dated GO precede flight; separate explicit human attestation precedes brief completion.
+- Preparation does not authorize the TP1–TP4 flight. A frozen card and a committed dated GO precede flight; separate explicit human attestation precedes brief completion. Pre-freeze environment probes that invoke the local model without running a test point are authorized readiness checks; they are recorded as probes, never as TP verdicts, and they do not substitute for a GO.
 - No raw or hand-edited exports are committed. Evidence is `opencode export <sessionID> --sanitize` output, hashed as captured.
 - No fabricated GO, signature, flight result, or attestation. The E3 GO is AI-authored and labeled as such.
 - The model under test is local. No hosted provider credential or network inference is required.
@@ -116,7 +116,7 @@ Operator supplied the E3 assignment text: permission configuration, local Ollama
 
 ## Evidence
 
-Read the E1 and E2 ADRs and briefs, `evolution-01/flight-card.md`, `evolution-02/flight-card.md`, `evolution-02/flight-log.md`, root `README.md`, `docs/PRD.md`, `docs/adr/ADR-1.md`, `opencode.json`, the E1/E2 agent files, and `evolution-00/AGENTS.md`. Verified with `opencode models` that `ollama/llama3.2:3b` resolves, and with `opencode debug agent mentalysis-e3` that `read` allow with `.env` files asking, `edit: ask` with both edit and write enabled, and the bash deny-plus-allowlist are the effective rules. Product lineage is `PRD-MENTALYSIS-1.0.0`; the PRD is not edited. CLI creation automatically books the ADR before semantic authoring; the document parent is not proof of a ledger PRD-parent edge. Interface destinations are not runtime evidence.
+Read the E1 and E2 ADRs and briefs, `evolution-01/flight-card.md`, `evolution-02/flight-card.md`, `evolution-02/flight-log.md`, root `README.md`, `docs/PRD.md`, `docs/adr/ADR-1.md`, `opencode.json`, the E1/E2 agent files, and `evolution-00/AGENTS.md`. Verified with `opencode models` that `ollama/llama3.2:3b` resolves, and with `opencode debug agent mentalysis-e3` that `read` allow with `.env` files asking, `edit: ask` with both edit and write enabled, and the bash deny-plus-allowlist are the effective rules. Fidelity assertions observed 2026-11-01: `uv run gz validate --decomposition` exited 0 and `uv run gz obpi validate --adr ADR-0.3.0 --authored` reported both briefs PASS. Product lineage is `PRD-MENTALYSIS-1.0.0`; the PRD is not edited. CLI creation automatically books the ADR before semantic authoring; the document parent is not proof of a ledger PRD-parent edge. Interface destinations are not runtime evidence.
 
 ## Alternatives Considered
 
@@ -138,7 +138,7 @@ The operator supplied the gate shape (read allow, edit ask, bash deny plus allow
 
 ### Assumption Surfacing
 
-Assumes `opencode run` records approval requests and auto-rejects them in its export. Assumes bash patterns match parsed commands such as `git tag ...`. Assumes the local model can emit OpenAI-compatible tool calls through the adapter. The shakiest assumption is model tool-calling reliability; it is probed before freeze and reported honestly.
+Assumes `opencode run` records approval requests and auto-rejects them in its export. Assumes bash patterns match parsed commands such as `git tag ...`. Assumes the local model can emit OpenAI-compatible tool calls through the adapter. The shakiest assumption is model tool-calling reliability; it is checked before freeze with authorized environment probes that run no test point and are reported honestly.
 
 ### The 2am Operator Question
 

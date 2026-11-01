@@ -5,8 +5,9 @@ Status: PREPARED — NOT FLOWN. No test point has earned a verdict.
 ## Preparation record — 2026-11-01 (not a flight event)
 
 - Preparation commits: `0972d4c` (initial package), `d26d840` (first freeze),
-  `4c793ff` (round 1 review fixes). The configuration baseline is `4c793ff`, the
-  last commit touching `opencode.json` or the E3 agent. Verify with
+  `4c793ff` (round 1 review fixes), `7db8a97` (round 2 freeze). The configuration
+  baseline is `4c793ff`, the last commit touching `opencode.json` or the E3
+  agent. Verify with
   `git log -1 --format=%H -- opencode.json .opencode/agents/mentalysis-e3.md`.
   The freeze commit that records this line must change neither file.
 - OpenCode `1.18.21`; model `ollama/llama3.2:3b`; Ollama `0.40.4`; model present
@@ -88,6 +89,32 @@ last commit touching `opencode.json` or the E3 agent, verifiable with
 `git log -1 --format=%H -- opencode.json .opencode/agents/mentalysis-e3.md`. The
 freeze commit records this line and must change neither file. The analysis wording
 was corrected. No GO was in force during round 2, so no test ran.
+
+## Independent review round 3 — NO-GO (2026-11-01 12:23 CST)
+
+Reviewer: AI reviewer (Big Pickle subagent), not a human. Freeze reviewed:
+`7db8a97f6b3e21939f941904061a954d3fc959e5`. No model sortie was run and no file
+was modified by the reviewer.
+
+Verdict: **NO-GO** on a boundary contradiction.
+
+- Confirmed: the baseline rule holds (`git log -1 --format=%H -- opencode.json
+  .opencode/agents/mentalysis-e3.md` returns `4c793ff`), the freeze commit changed
+  neither file, the permissions and model resolve correctly, both prior rounds'
+  fields are resolved, and no flight or completion is claimed.
+- Blocking field: the ADR said "Preparation does not authorize model execution"
+  and OBPI-01 denied "model sorties", but this log records pre-freeze probes with
+  session IDs and the ADR said the model "is probed before freeze". The package
+  contradicted its own boundary invariant.
+- Minor notes: the preparation-commit lists omitted `7db8a97`; OBPI-01 Gate 2 still
+  said "pending parent implementation"; TP1's PASS rule did not restate the marker;
+  and the ADR's fidelity-assertion outputs were not recorded.
+
+Fix: the ADR now distinguishes the TP1–TP4 flight from authorized pre-freeze
+environment probes that run no test point; OBPI-01 allows those probes and denies
+only a TP1–TP4 sortie. The commit lists include `7db8a97`, Gate 2 reflects the
+completed artifact review, TP1 PASS requires the marker, and the ADR records the
+fidelity-assertion exit codes. No GO was in force during round 3, so no test ran.
 
 ## Preflight record (after committed GO)
 

@@ -72,7 +72,7 @@ Path grounding: the parent ADR Interfaces explicitly authorizes all thirteen pat
 - `docs/adr/ADR-1.md` — course architecture decision; E3 does not rewrite E2's comparison.
 - `AGENTS.md` — protected contract.
 - `.gzkit/**` — instructions and CLI-owned ledger, never manually edited.
-- All paths not explicitly allowed; no new Python runtime, dependencies, commits, pushes, or model sorties.
+- All paths not explicitly allowed; no new Python runtime, dependencies, commits, pushes, or TP1–TP4 sortie. Pre-freeze environment probes that invoke the local model without running a test point are authorized readiness checks and are recorded in `evolution-03/flight-log.md` as probes, not verdicts.
 
 ## Requirements (FAIL-CLOSED)
 
@@ -161,7 +161,7 @@ Observed 2026-11-01:
 
 ### Gate 2 (Verification)
 
-Product artifact review pending parent implementation. No runtime tests or sortie performed by this governance authoring pass.
+Product artifact review complete against all four REQs: provider and model resolve, the effective permission rules match, the lab file is byte-identical, and the card/log/evidence/analysis/navigation records are consistent. No runtime sortie was performed by this preparation pass.
 
 ### Gate 5 (Human)
 

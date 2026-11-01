@@ -378,6 +378,12 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   or the E3 agent, and requiring the freeze commit to change neither file. The
   analysis wording about E1/E2 agent-level precedence was also corrected. No test
   ran.
+- **Independent review round 3:** a third AI review returned NO-GO at `7db8a97`
+  because the ADR and OBPI-01 forbade "model execution"/"model sorties" while the
+  log recorded pre-freeze probes. Fixed by distinguishing the TP1–TP4 flight from
+  authorized pre-freeze environment probes that run no test point, allowing the
+  probes in OBPI-01, and fixing the minor gaps the review noted (commit list,
+  Gate 2 status, TP1 marker rule, fidelity-assertion outputs). No test ran.
 - **Environment note:** a nested `opencode run` through the parent session's
   shell restarted the parent server twice. Probes were relaunched as detached
   processes. This is recorded as a harness interaction, not as evidence.
