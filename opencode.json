@@ -3,16 +3,18 @@
   "default_agent": "mentalysis",
   "share": "disabled",
   "permission": {
-    "read": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "ask",
+      "*.env.*": "ask",
+      "*.env.example": "allow"
+    },
     "edit": "ask",
     "bash": {
       "*": "deny",
       "git status": "allow",
-      "git status *": "allow",
       "git diff": "allow",
-      "git diff *": "allow",
-      "git log": "allow",
-      "git log *": "allow"
+      "git log": "allow"
     }
   },
   "provider": {

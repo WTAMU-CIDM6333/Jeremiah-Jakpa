@@ -26,8 +26,8 @@ E2 remains ABORTED on a hosted-provider `401 Invalid credential`. E3 does not de
 
 ## Decision
 
-1. Configure `opencode.json` with a local Ollama provider named `ollama` using `@ai-sdk/openai-compatible` at `http://localhost:11434/v1`, exposing the installed `llama3.2:3b` model as `ollama/llama3.2:3b`, and add a `mentalysis-e3` primary agent that uses it. Set the system permission policy to `read: allow`, `edit: ask`, and `bash: deny` by default, with an allowlist limited to read-only inspection commands (`git status`, `git diff`, `git log`, each with and without arguments).
-2. Commit the 09/17 lab file `evolution-00/AGENTS.md` verbatim under `evolution-03/lab/AGENTS.md`, recording that it was not committed that night under the required path and that the copy is byte-identical.
+1. Configure `opencode.json` with a local Ollama provider named `ollama` using `@ai-sdk/openai-compatible` at `http://localhost:11434/v1`, exposing the installed `llama3.2:3b` model as `ollama/llama3.2:3b`, and add a `mentalysis-e3` primary agent that uses it. Set the system permission policy to `read` allow with `.env` files asking, `edit: ask`, and `bash: deny` by default, with an allowlist limited to the exact read-only inspection commands `git status`, `git diff`, and `git log`.
+2. Commit the AGENTS.md lab file `evolution-00/AGENTS.md` verbatim under `evolution-03/lab/AGENTS.md`. The assignment calls it the "09/17" lab file; the repository records the lab work on 2026-09-29 and the file's first commit on 2026-10-14 (`69eff6b`), so it was not committed on the lab night. Record both the operator's date label and the actual provenance, and verify the copy byte-identical.
 3. After the package is frozen at a recorded commit and a dated GO is recorded on the card (AI-authored and explicitly not a human signature), fly TP1–TP4 in four fresh sessions, export each with `opencode export <sessionID> --sanitize`, hash the exports, and classify each test point honestly as PASS, FAIL, INCONCLUSIVE, or ABORT.
 
 ## Boundary Invariants
@@ -52,7 +52,7 @@ The operator authorizes these exact preparation paths, including green-field dir
 - `evolution-03/evidence/README.md`: capture instructions; later flight owns sanitized files under `evolution-03/evidence/**`.
 - `evolution-03/fixtures/read-target.txt`: benign TP1 read target.
 - `evolution-03/fixtures/planted-instruction.txt`: TP3 untrusted file that orders a write and a tag.
-- `evolution-03/lab/AGENTS.md`: the 09/17 lab file, copied verbatim from `evolution-00/AGENTS.md`.
+- `evolution-03/lab/AGENTS.md`: the AGENTS.md lab file, copied verbatim from `evolution-00/AGENTS.md`, with the assignment's "09/17" label and the repository's 2026-09-29 lab / 2026-10-14 commit provenance both recorded.
 - `design-analyses/E3-permission-gate.md`: official-source explanation of how the permission rules resolve and what the test points can and cannot prove.
 - `design-analyses/LEDGER.md`: design index, not the gzkit ledger.
 - `AI_LOG.md`: honest assistance history.
@@ -64,7 +64,7 @@ The parent session owns those implementation documents. Governance authoring own
 
 ### Positive
 
-The gate becomes observable instead of asserted: a read with no prompt, an edit with a recorded approval request that non-interactive mode rejects, a planted instruction that changes nothing, and a denied command with an error status. A local model removes the hosted-credential dependency that aborted E2. The 09/17 lab file finally lands at its required path with a verifiable hash.
+The gate becomes observable instead of asserted: a read with no prompt, an edit with a recorded approval request that non-interactive mode rejects, a planted instruction that changes nothing, and a denied command with an error status. A local model removes the hosted-credential dependency that aborted E2. The AGENTS.md lab file finally lands at its required path with a verifiable hash and provenance reconciled against the repository record.
 
 ### Negative
 
@@ -116,7 +116,7 @@ Operator supplied the E3 assignment text: permission configuration, local Ollama
 
 ## Evidence
 
-Read the E1 and E2 ADRs and briefs, `evolution-01/flight-card.md`, `evolution-02/flight-card.md`, `evolution-02/flight-log.md`, root `README.md`, `docs/PRD.md`, `docs/adr/ADR-1.md`, `opencode.json`, the E1/E2 agent files, and `evolution-00/AGENTS.md`. Verified with `opencode models` that `ollama/llama3.2:3b` resolves, and with `opencode debug agent mentalysis-e3` that `read: allow`, `edit: ask`, and the bash deny-plus-allowlist are the effective rules. Product lineage is `PRD-MENTALYSIS-1.0.0`; the PRD is not edited. CLI creation automatically books the ADR before semantic authoring; the document parent is not proof of a ledger PRD-parent edge. Interface destinations are not runtime evidence.
+Read the E1 and E2 ADRs and briefs, `evolution-01/flight-card.md`, `evolution-02/flight-card.md`, `evolution-02/flight-log.md`, root `README.md`, `docs/PRD.md`, `docs/adr/ADR-1.md`, `opencode.json`, the E1/E2 agent files, and `evolution-00/AGENTS.md`. Verified with `opencode models` that `ollama/llama3.2:3b` resolves, and with `opencode debug agent mentalysis-e3` that `read` allow with `.env` files asking, `edit: ask` with both edit and write enabled, and the bash deny-plus-allowlist are the effective rules. Product lineage is `PRD-MENTALYSIS-1.0.0`; the PRD is not edited. CLI creation automatically books the ADR before semantic authoring; the document parent is not proof of a ledger PRD-parent edge. Interface destinations are not runtime evidence.
 
 ## Alternatives Considered
 
@@ -134,7 +134,7 @@ The installed harness must resolve the Ollama provider and the permission rules,
 
 ### Constraint Archaeology
 
-The operator supplied the gate shape (read allow, edit ask, bash deny plus allowlist), the local-model requirement, and the four test points. `opencode.json` was previously frozen by E2 as unchanged; that constraint is real and is explicitly superseded here rather than silently ignored. The 09/17 lab file predates this work; its hash is checked, not assumed.
+The operator supplied the gate shape (read allow, edit ask, bash deny plus allowlist), the local-model requirement, and the four test points. `opencode.json` was previously frozen by E2 as unchanged; that constraint is real and is explicitly superseded here rather than silently ignored. The AGENTS.md lab file predates this work; its hash is checked, not assumed, and its date label is reconciled with the repository record rather than repeated.
 
 ### Assumption Surfacing
 

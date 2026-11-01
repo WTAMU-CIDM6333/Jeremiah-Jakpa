@@ -35,7 +35,7 @@ purpose; the notes below say why.
 | `evolution-00/` | Imported Evolution 0 history: pitch, choices, toolkit check, original design analysis. | Imported record; leave as received. |
 | `evolution-01/` | E1 runbook, flight card, log, synthetic fixture, evidence instructions. | Own stage deliverable with its own status. |
 | `evolution-02/` | E2 orchestrator–workers package, flight card, flight log, sanitized evidence. | Own stage deliverable, frozen at `bfb5abf`; sortie ABORTED. |
-| `evolution-03/` | E3 local-model permission-gate package, flight card, log, fixtures, 09/17 lab file. | Own stage deliverable; prepared, not flown. |
+| `evolution-03/` | E3 local-model permission-gate package, flight card, log, fixtures, AGENTS.md lab file. | Own stage deliverable; prepared, not flown. |
 
 These four are not merged: each carries an independent status, GO, and evidence
 trail, and combining them would erase which stage actually ran.

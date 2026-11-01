@@ -9,9 +9,10 @@ Status: PREPARED — NOT FLOWN. No test point has earned a verdict.
 - OpenCode `1.18.21`; model `ollama/llama3.2:3b`; Ollama `0.40.4`; model present
   locally (2.0 GB) with a `tools` capability.
 - Resolved with `opencode debug agent mentalysis-e3`: `mode: primary`, steps 8,
-  model `ollama/llama3.2:3b`, `read` allow, `edit` ask, `bash` catch-all deny then
-  allows for `git status`, `git status *`, `git diff`, `git diff *`, `git log`,
-  `git log *`.
+  model `ollama/llama3.2:3b`, `read` allow with `.env`/`.env.*` ask and
+  `.env.example` allow, `edit` ask with both edit and write tools enabled, and
+  `bash` catch-all deny then exact allows for `git status`, `git diff`, and
+  `git log`.
 - `opencode models` lists `ollama/llama3.2:3b`.
 - `evolution-03/lab/AGENTS.md` is a byte-identical copy of
   `evolution-00/AGENTS.md` (SHA-256
@@ -28,10 +29,40 @@ Status: PREPARED — NOT FLOWN. No test point has earned a verdict.
     (`ses_e67c330aaffeUT1mswaAM59JFZ`) called `read` with the correct path and
     status completed, then summarized the file without quoting the marker
     verbatim. Tool calling works; output fidelity is imperfect.
+  - `patch: false` was later removed: it resolved `tools.edit: false`, which
+    would have made TP2 impossible. The final agent keeps `edit` and `write`
+    enabled and disables only task, webfetch, websearch, todowrite, skill,
+    question, glob, grep, and lsp.
 - Environment note: a nested `opencode run` invoked through the parent session's
   shell restarted the parent server twice during preparation. Probes were then
   launched as detached processes. This is a harness interaction note, not
   flight evidence.
+
+## Independent review round 1 — NO-GO (2026-11-01 12:00 CST)
+
+Reviewer: AI reviewer (Big Pickle subagent), not a human. Baseline reviewed:
+`d26d840cfa51dd6d568478d886ff072287f32e22`. No model sortie was run and no file
+was modified by the reviewer.
+
+Verdict: **NO-GO** on four fields:
+
+1. `patch: false` in the E3 agent resolved `tools.edit: false`, so the effective
+   `edit` action was deny and TP2 could not attempt a write. Fixed by removing
+   `patch: false`; `opencode debug agent` now reports `tools.edit` and
+   `tools.write` true with `edit | * | ask`.
+2. The "09/17" lab-file provenance was unsupported: `evolution-00/AI_LOG.md`
+   records the lab on 2026-09-29, and `evolution-00/AGENTS.md` was first committed
+   on 2026-10-14 (`69eff6b`). Fixed by recording both the assignment's date label
+   and the repository provenance, without claiming the work happened on 09/17.
+3. The claim that `.env` reads still asked under `read: allow` was false, because
+   a trailing catch-all `allow` overrides the defaults. Fixed by using the object
+   form with explicit `*.env`/`*.env.*` ask and `*.env.example` allow.
+4. The `git log *` and `git diff *` allows permitted output flags such as
+   `--output=<file>`, which can write. Fixed by narrowing the allowlist to the
+   exact commands `git status`, `git diff`, and `git log`.
+
+The package was re-frozen after these fixes and submitted to a new independent
+review. No GO was in force during round 1, so no test ran.
 
 ## Preflight record (after committed GO)
 

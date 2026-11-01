@@ -21,26 +21,29 @@ rules after it. The E3 configuration follows that shape:
 
 ```json
 "permission": {
-  "read": "allow",
+  "read": {
+    "*": "allow",
+    "*.env": "ask",
+    "*.env.*": "ask",
+    "*.env.example": "allow"
+  },
   "edit": "ask",
   "bash": {
     "*": "deny",
     "git status": "allow",
-    "git status *": "allow",
     "git diff": "allow",
-    "git diff *": "allow",
-    "git log": "allow",
-    "git log *": "allow"
+    "git log": "allow"
   }
 }
 ```
 
 `edit` covers edit, write, and patch, so a write attempt is governed by the same
-rule. Bash patterns match the parsed command; the documentation notes that a
-command with arguments needs an argument-bearing pattern such as `git status *`,
-which is why both forms are listed. `read` defaults to allow, and the explicit
-`read: allow` states the intent; the default `.env` ask rules remain in force
-underneath it.
+rule. Bash patterns match the parsed command. Only the exact three commands are
+allowed, so an argument-bearing form such as `git status --short` or
+`git log --output=<file>` is denied; this keeps the allowlist genuinely
+inspection-only rather than allowing output flags that write. `read` is written
+in object form so the `.env` ask defaults are not overridden by a trailing
+catch-all `allow`.
 
 `opencode debug agent mentalysis-e3` prints the resolved rule list in evaluation
 order. That resolved list, not the JSON source alone, is the preflight artifact.

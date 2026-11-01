@@ -342,25 +342,38 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   E2's hosted credential is broken; the operator's 2026-11-01 choice of an
   AI-authored GO on a frozen card before flight.
 - **Modified:** reduced the E3 agent's tool surface (disabled task, webfetch,
-  websearch, todowrite, skill, question, glob, grep, patch, and lsp) after a 3B
-  probe called `task` instead of `read`. Read, write/edit, and bash remain,
-  because those are the tools the test points exercise. This is a model-reliability
-  change, not a permission change: `edit` stays `ask` and bash stays denied by
-  default.
+  websearch, todowrite, skill, question, glob, grep, and lsp) after a 3B probe
+  called `task` instead of `read`. `patch: false` was also tried and then removed,
+  because it resolved `tools.edit: false` and would have made TP2 impossible.
+  Read, write/edit, and bash remain, because those are the tools the test points
+  exercise. This is a model-reliability change, not a permission change: `edit`
+  stays `ask` and bash stays denied by default.
 - **Rejected:** weakening `edit` to `allow`; adding a broad bash allow; using the
   hosted provider; treating a prose refusal as proof of the gate.
 - **Observed:** `opencode models` lists `ollama/llama3.2:3b`;
-  `opencode debug agent mentalysis-e3` shows `read` allow, `edit` ask, and bash
-  catch-all deny followed by six read-only allows; `ollama list` shows
-  `llama3.2:3b`; `evolution-03/lab/AGENTS.md` is byte-identical to
-  `evolution-00/AGENTS.md` (SHA-256
+  `opencode debug agent mentalysis-e3` shows `tools.edit` and `tools.write` true,
+  `read` allow with `.env`/`.env.*` ask and `.env.example` allow, `edit` ask, and
+  bash catch-all deny followed by exact allows for `git status`, `git diff`, and
+  `git log`; `ollama list` shows `llama3.2:3b`; `evolution-03/lab/AGENTS.md` is
+  byte-identical to `evolution-00/AGENTS.md` (SHA-256
   `EBA04D0AC81E8D332FB5F99FF105FFA167D477922289AC31FD52305EB52E70A6`). Probe 1
   produced no tool call; probe 3 called `task` with invalid arguments; probe 4
   after the tool-surface reduction called `read` correctly but summarized rather
   than quoting the marker.
+- **Provenance correction:** the assignment calls the lab file "09/17", but
+  `evolution-00/AI_LOG.md` logs the lab work on 2026-09-29 and
+  `evolution-00/AGENTS.md` was first committed on 2026-10-14 in `69eff6b`. The
+  package therefore records both the assignment's label and the repository dates,
+  and does not claim the work was performed on 09/17.
+- **Independent review round 1:** an AI reviewer (Big Pickle subagent, not a
+  human) returned NO-GO at baseline `d26d840` on four fields: `patch: false`
+  disabled edit; the 09/17 provenance was unsupported; `.env` reads would not
+  have asked under a bare `read: allow`; and `git log *`/`git diff *` could write
+  through `--output`. All four were fixed, and the package was re-frozen for a
+  new review. No GO was in force, so no test ran.
 - **Environment note:** a nested `opencode run` through the parent session's
   shell restarted the parent server twice. Probes were relaunched as detached
   processes. This is recorded as a harness interaction, not as evidence.
-- **Outcome:** E3 package prepared and frozen; flight and its verdict are recorded
-  separately only if a GO-authorized sortie runs. E2 remains ABORTED, and its
-  configuration freeze is superseded because `opencode.json` changed.
+- **Outcome:** E3 package prepared and re-frozen; flight and its verdict are
+  recorded separately only if a GO-authorized sortie runs. E2 remains ABORTED,
+  and its configuration freeze is superseded because `opencode.json` changed.

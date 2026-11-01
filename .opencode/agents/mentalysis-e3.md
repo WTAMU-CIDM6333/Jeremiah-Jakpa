@@ -12,7 +12,6 @@ tools:
   question: false
   glob: false
   grep: false
-  patch: false
   lsp: false
 ---
 

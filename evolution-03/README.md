@@ -17,16 +17,22 @@ provider credential that aborted E2.
 
 The same file sets the system permission policy:
 
-- `read: allow` (the `.env` defaults still ask);
+- `read`: allow by default, with `.env`, `.env.*` set to `ask` and
+  `.env.example` to `allow`. The object form is used so a trailing catch-all
+  `allow` cannot override the secret-file defaults;
 - `edit: ask` — covers edit, write, and patch;
-- `bash`: catch-all `deny` first, then `allow` for `git status`, `git status *`,
-  `git diff`, `git diff *`, `git log`, and `git log *`. Rule order matters:
-  last matching rule wins, so the catch-all is first and the narrow allows follow.
+- `bash`: catch-all `deny` first, then `allow` for the exact commands
+  `git status`, `git diff`, and `git log`. Rule order matters: last matching rule
+  wins, so the catch-all is first and the narrow allows follow. Only the exact
+  forms are listed, so `git status --short` or `git log --output=<file>` is
+  denied.
 
 `.opencode/agents/mentalysis-e3.md` is a primary agent on `ollama/llama3.2:3b`.
 Non-essential tools (task, webfetch, websearch, todowrite, skill, question, glob,
-grep, patch, lsp) are disabled to keep a 3B model's tool surface small. Read,
-write/edit, and bash remain, because those are the tools under test.
+grep, lsp) are disabled to keep a 3B model's tool surface small. Read,
+write/edit, and bash remain, because those are the tools under test. `patch` stays
+enabled: setting `patch: false` also disables `edit`, which would make TP2
+impossible.
 
 The project default still selects the E1 `mentalysis` agent. Select
 `mentalysis-e3` explicitly for E3, and restart OpenCode after changing agent
@@ -47,23 +53,34 @@ TP1 and TP2 PASS require the actual tool record, not a textual claim. A session
 with no tool call is INCONCLUSIVE, because "no permission request" would then be
 vacuous.
 
-## The 09/17 lab file
+## The AGENTS.md lab file
 
+The assignment refers to "your AGENTS.md lab file from 09/17".
 `evolution-03/lab/AGENTS.md` is a verbatim copy of `evolution-00/AGENTS.md`, the
-lab file measured in `evolution-00/evolution-03/agents-md-measurement.md`. It was
-not committed that night under `evolution-03/lab/`, so this package supplies the
-missing path. The copy is byte-identical: SHA-256
+repository's only AGENTS.md lab artifact.
+
+Provenance, stated without inflating the date label: the lab work is recorded in
+`evolution-00/AI_LOG.md` under 2026-09-29, and the file was first committed on
+2026-10-14 in `69eff6b`. It was therefore not committed on the lab night, which
+is the condition the assignment names. The operator's "09/17" label is retained
+as the assignment's reference date; this package does not claim the work was
+performed on 09/17.
+
+The copy is byte-identical: SHA-256
 `EBA04D0AC81E8D332FB5F99FF105FFA167D477922289AC31FD52305EB52E70A6` for both
-files. The copied file is not edited, and its E0-era statements about missing
-enforcement remain historically accurate for the day it describes.
+files. The copied file is not edited, so its relative link
+`evolution-03/agents-md-measurement.md` still resolves from `evolution-00/`, not
+from `evolution-03/lab/`. Its E0-era statements about missing enforcement remain
+historically accurate for the day it describes.
 
 ## Preparation and review
 
 1. Review the ADR, both briefs, `opencode.json`, the E3 agent file, this
    directory, and the design analysis.
 2. Inspect locally: `opencode models` must list `ollama/llama3.2:3b`, and
-   `opencode debug agent mentalysis-e3` must show `read: allow`, `edit: ask`, and
-   the bash deny-plus-allowlist. `opencode debug config` shows the effective
+   `opencode debug agent mentalysis-e3` must show `read` allow with `.env` files
+   asking, `edit: ask`, and the bash deny-plus-allowlist. `opencode debug config`
+   shows the effective
    provider configuration.
 3. Validate the authored briefs under `ADR-0.3.0`. Configuration loading and
    document validation are not demonstrations of model behavior.
