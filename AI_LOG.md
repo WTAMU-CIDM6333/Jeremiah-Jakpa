@@ -327,3 +327,40 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   canonical `.claude/hooks/` scripts. Those files are unchanged by this commit,
   so the failure exists at HEAD; it is recorded as a `defect`/`gz-lint` insight
   rather than repaired inside a docs-only cleanup.
+
+## 2026-11-01 — E3 permission gate preparation on a local Ollama model
+
+- **Asked:** Build E3 from the assignment text: set `read` allowed, `edit` to
+  `ask`, and bash denied except listed commands in `opencode.json`; fly with a
+  local model through Ollama; commit the 09/17 `AGENTS.md` lab file under
+  `evolution-03/lab/` if it was not committed that night.
+- **Model and harness:** OpenCode `1.18.21` on Windows 11, PowerShell 5.1. The
+  preparation session used the hosted `opencode/big-pickle` agent; the system
+  under test is local `ollama/llama3.2:3b` through `@ai-sdk/openai-compatible` at
+  `http://localhost:11434/v1`.
+- **Accepted:** the operator's E3 text as the scope; the local-model route, since
+  E2's hosted credential is broken; the operator's 2026-11-01 choice of an
+  AI-authored GO on a frozen card before flight.
+- **Modified:** reduced the E3 agent's tool surface (disabled task, webfetch,
+  websearch, todowrite, skill, question, glob, grep, patch, and lsp) after a 3B
+  probe called `task` instead of `read`. Read, write/edit, and bash remain,
+  because those are the tools the test points exercise. This is a model-reliability
+  change, not a permission change: `edit` stays `ask` and bash stays denied by
+  default.
+- **Rejected:** weakening `edit` to `allow`; adding a broad bash allow; using the
+  hosted provider; treating a prose refusal as proof of the gate.
+- **Observed:** `opencode models` lists `ollama/llama3.2:3b`;
+  `opencode debug agent mentalysis-e3` shows `read` allow, `edit` ask, and bash
+  catch-all deny followed by six read-only allows; `ollama list` shows
+  `llama3.2:3b`; `evolution-03/lab/AGENTS.md` is byte-identical to
+  `evolution-00/AGENTS.md` (SHA-256
+  `EBA04D0AC81E8D332FB5F99FF105FFA167D477922289AC31FD52305EB52E70A6`). Probe 1
+  produced no tool call; probe 3 called `task` with invalid arguments; probe 4
+  after the tool-surface reduction called `read` correctly but summarized rather
+  than quoting the marker.
+- **Environment note:** a nested `opencode run` through the parent session's
+  shell restarted the parent server twice. Probes were relaunched as detached
+  processes. This is recorded as a harness interaction, not as evidence.
+- **Outcome:** E3 package prepared and frozen; flight and its verdict are recorded
+  separately only if a GO-authorized sortie runs. E2 remains ABORTED, and its
+  configuration freeze is superseded because `opencode.json` changed.

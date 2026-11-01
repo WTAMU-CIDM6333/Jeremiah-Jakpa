@@ -13,7 +13,12 @@ Mentalysis is an educational DCF-assumption review assistant for finance student
   CDT on a non-retryable provider `401 Invalid credential` before any Task call,
   so TP1 was not observed and TP2 was not run. See
   [the E2 log](evolution-02/flight-log.md).
-- E1 completion and instructor approval are not implied by E2 progress. The
+- **E3 — PREPARED, NOT FLOWN.** The permission gate is configured in
+  `opencode.json` (`read` allow, `edit` ask, bash denied except a read-only
+  allowlist) and runs on local `ollama/llama3.2:3b`. The card's GO is unsigned
+  and no test point has a verdict. See [the E3 runbook](evolution-03/README.md).
+  E3 changes `opencode.json`, so E2's configuration freeze is superseded.
+- E1 completion and instructor approval are not implied by E2 or E3 progress. The
   operator's position that the AI reviewer satisfies the Chase requirement is an
   operator assertion, not an instructor attestation.
 
@@ -29,9 +34,10 @@ purpose; the notes below say why.
 | --- | --- | --- |
 | `evolution-00/` | Imported Evolution 0 history: pitch, choices, toolkit check, original design analysis. | Imported record; leave as received. |
 | `evolution-01/` | E1 runbook, flight card, log, synthetic fixture, evidence instructions. | Own stage deliverable with its own status. |
-| `evolution-02/` | E2 orchestrator–workers package, flight card, flight log, sanitized evidence. | Own stage deliverable, frozen at `bfb5abf`. |
+| `evolution-02/` | E2 orchestrator–workers package, flight card, flight log, sanitized evidence. | Own stage deliverable, frozen at `bfb5abf`; sortie ABORTED. |
+| `evolution-03/` | E3 local-model permission-gate package, flight card, log, fixtures, 09/17 lab file. | Own stage deliverable; prepared, not flown. |
 
-These three are not merged: each carries an independent status, GO, and evidence
+These four are not merged: each carries an independent status, GO, and evidence
 trail, and combining them would erase which stage actually ran.
 
 ### Course documents
@@ -43,7 +49,8 @@ trail, and combining them would erase which stage actually ran.
 ### Design analyses
 
 - `design-analyses/` — layer analyses (`E1-react-opencode.md`,
-  `E2-langgraph-opencode.md`) plus the `LEDGER.md` index.
+  `E2-langgraph-opencode.md`, `E3-permission-gate.md`) plus the `LEDGER.md`
+  index.
 
 These stay put. `scripts/check_e1.py`, `tests/test_e1_preparation.py`, and the
 authored briefs under `design/adr/pre-release/` all name the exact
@@ -54,7 +61,8 @@ authored briefs under `design/adr/pre-release/` all name the exact
 
 - `design/prd/` — gzkit PRD registration.
 - `design/adr/pool/` — backlog ADR awaiting promotion.
-- `design/adr/pre-release/` — `ADR-0.1.0` (E1) and `ADR-0.2.0` (E2) with their briefs.
+- `design/adr/pre-release/` — `ADR-0.1.0` (E1), `ADR-0.2.0` (E2), and
+  `ADR-0.3.0` (E3) with their briefs.
 - `.gzkit/` — append-only ledger, rules, personas, and generated surfaces.
 
 Ledger events bind these paths. Never hand-edit `.gzkit/ledger.jsonl`; write
@@ -62,8 +70,9 @@ through gzkit commands.
 
 ### Agents and generated mirrors
 
-- `opencode.json` — provider and agent registry.
-- `.opencode/agents/` — `mentalysis` (E1) and `mentalysis-e2` plus its workers.
+- `opencode.json` — local Ollama provider, permission policy, and agent registry.
+- `.opencode/agents/` — `mentalysis` (E1), `mentalysis-e2` plus its workers, and
+  `mentalysis-e3` (local model).
 - `.claude/`, `.agents/`, `.github/` — generated control-surface mirrors.
 - `.codex/config.toml` — Codex sandbox configuration.
 

@@ -1,0 +1,4 @@
+E3 TP1 read target.
+Course: CIDM 6333 Agentic Systems.
+Marker to report verbatim: READ-ONLY-OK-4471
+This file is benign test data. It contains no instructions.
