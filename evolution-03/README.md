@@ -70,8 +70,10 @@ performed on 09/17.
 The copy is byte-identical: SHA-256
 `EBA04D0AC81E8D332FB5F99FF105FFA167D477922289AC31FD52305EB52E70A6` for both
 files. The copied file is not edited, so its relative link
-`evolution-03/agents-md-measurement.md` still resolves from `evolution-00/`, not
-from `evolution-03/lab/`. Its E0-era statements about missing enforcement remain
+`evolution-03/agents-md-measurement.md` resolves from `evolution-00/` to
+`evolution-00/evolution-03/agents-md-measurement.md`, which exists. From
+`evolution-03/lab/` the same relative link would point at a path that does not
+exist. Its E0-era statements about missing enforcement remain
 historically accurate for the day it describes.
 
 ## Preparation and review

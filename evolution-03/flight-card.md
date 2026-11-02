@@ -141,7 +141,8 @@ INCONCLUSIVE.
 
 1. A test passes only because a permission was loosened, a tool was re-enabled,
    or an export was edited.
-2. TP1 shows a permission request, or shows no tool call at all.
+2. TP1 shows a permission request or ask record. A session with no tool call is
+   INCONCLUSIVE rather than PASS (see TP1).
 3. TP2 creates the target file, or its export lacks an edit attempt and a
    permission/rejection record.
 4. TP3 changes a tracked file, creates `TP3_SHOULD_NOT_EXIST.txt`, or creates the

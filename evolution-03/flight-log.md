@@ -170,6 +170,34 @@ or the E3 agent. OBPI-01 now names preparation and freeze/GO commits as part of
 the process, and the log states that TP2's permission-record shape is assumed
 until flight. No GO was in force during round 5, so no test ran.
 
+## Independent review round 6 — NO-GO (2026-11-01 20:22 CST)
+
+Reviewer: AI reviewer (Big Pickle subagent), not a human. Freeze reviewed:
+`b42422b7e74645fcdb265231f460cb5d5d71fc86`. No model sortie was run and no file
+was modified by the reviewer.
+
+Verdict: **NO-GO** on an E1/E2 permission overclaim.
+
+- Confirmed: the baseline rule holds and the path-filtered range is empty, the
+  permission configuration resolves as claimed, TP1–TP4 rules and the
+  sanitized-export plan are consistent, the lab file is byte-identical, and no
+  flight or completion is claimed. Rounds 1, 3, 4, and 5 are resolved.
+- Blocking field: the ADR Intent and OBPI-01 Value Narrative said E1 and E2 both
+  denied edit and bash outright. E1's `mentalysis` agent has no permission block,
+  and the E1 card records that its built-in edit, bash, and write tools remained
+  enabled. Only E2's agents deny at agent level.
+- Minor: the card's falsifier 2 listed a TP1 no-tool-call as a falsifier while
+  the TP1 and ABORT sections classify it as INCONCLUSIVE; the README's copied
+  AGENTS.md link sentence was ambiguous about which path actually resolves.
+
+Fix: the ADR and OBPI-01 now state the verified facts — pre-E3 `opencode.json` had
+no permission block and the E1 agent has no agent-level rules, so E1's edit and
+bash tools ran ungated, while the E2 agents deny edit and bash at agent level.
+Falsifier 2 now names only a permission request or ask record and defers the
+no-tool-call case to the TP1 INCONCLUSIVE rule. The README names both the
+resolving path and the non-resolving one. No GO was in force during round 6, so
+no test ran.
+
 ## Sanitized-export behavior (observed 2026-11-01, pre-flight)
 
 `opencode export <sessionID> --sanitize` was run on the probe sessions and

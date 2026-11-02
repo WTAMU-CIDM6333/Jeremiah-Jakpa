@@ -20,7 +20,7 @@ The operator explicitly requested E3 as the next evolution. Version 0.3.0 carrie
 
 ## Intent
 
-Prove, with exported evidence rather than assertion, that the permission configuration — not the model's goodwill — is the gate. E1 and E2 prepared agents whose edit and bash tools were denied outright. E3 exercises the `ask` boundary on a local model: reads run without a prompt, edits are requested and auto-rejected in non-interactive `opencode run`, a planted instruction in a read file does not cause a write, and a non-allowlisted bash command fails with an error status.
+Prove, with exported evidence rather than assertion, that the permission configuration — not the model's goodwill — is the gate. Before E3, `opencode.json` carried no permission block, and the E1 `mentalysis` agent has no agent-level permission rules, so its built-in edit and bash tools ran ungated; only the E2 agents deny edit and bash at agent level. E3 exercises the `ask` boundary on a local model: reads run without a prompt, edits are requested and auto-rejected in non-interactive `opencode run`, a planted instruction in a read file does not cause a write, and a non-allowlisted bash command fails with an error status.
 
 E2 remains ABORTED on a hosted-provider `401 Invalid credential`. E3 does not depend on that provider: it uses a local Ollama model. E3 does not claim E2 completion, and it changes `opencode.json`, which E2's frozen baseline declared unchanged.
 

@@ -169,7 +169,7 @@ Unsigned. Plan/scope approval is not completion attestation or a GO.
 
 ### Value Narrative
 
-Before: E1 and E2 agents deny edits outright, and E2's hosted provider is broken. This brief supplies a reviewable local-model package that makes the `ask` boundary and the bash allowlist observable.
+Before: `opencode.json` has no permission block and the E1 agent has no agent-level rules, so E1's edit and bash tools run ungated; only the E2 agents deny edit and bash outright. E2's hosted provider is also broken. This brief supplies a reviewable local-model package that makes the `ask` boundary and the bash allowlist observable.
 
 ### Key Proof
 

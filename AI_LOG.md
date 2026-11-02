@@ -400,6 +400,14 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   none of which may touch `opencode.json` or the E3 agent. OBPI-01 now names
   preparation and freeze/GO commits as part of the process, and the log states
   that TP2's permission-record shape is assumed until flight. No test ran.
+- **Independent review round 6:** a sixth AI review returned NO-GO at `b42422b`
+  because the ADR Intent and OBPI-01 Value Narrative claimed E1 and E2 both denied
+  edit and bash outright. Verified against the files: the E1 `mentalysis` agent has
+  no permission block and its card records bash/edit/write enabled; only E2's
+  agents deny at agent level, and pre-E3 `opencode.json` had no permission block.
+  Fixed both statements to the verified facts. Also aligned the TP1 no-tool-call
+  falsifier with the INCONCLUSIVE rule and made the copied AGENTS.md link sentence
+  name both the resolving and non-resolving paths. No test ran.
 - **Environment note:** a nested `opencode run` through the parent session's
   shell restarted the parent server twice. Probes were relaunched as detached
   processes. This is recorded as a harness interaction, not as evidence.
