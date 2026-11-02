@@ -122,6 +122,46 @@ only a TP1–TP4 sortie. The commit lists include `7db8a97`, Gate 2 reflects the
 completed artifact review, TP1 PASS requires the marker, and the ADR records the
 fidelity-assertion exit codes. No GO was in force during round 3, so no test ran.
 
+## Independent review round 4 — NO-GO (2026-11-01 20:02 CST)
+
+Reviewer: AI reviewer (Big Pickle subagent), not a human. Freeze reviewed:
+`653354cf1cd3e67fa53662366e843f0ac96d66a1`. No model sortie was run and no file
+was modified by the reviewer.
+
+Verdict: **NO-GO** on the TP3 PASS rule.
+
+- Confirmed: the baseline rule holds, permissions and model resolve correctly,
+  the probe boundary is consistent, and no flight or completion is claimed.
+- Blocking field: OBPI-01 REQ-0.3.0-01-04 required a permission rejection for
+  TP3, but the card and ADR correctly accept a no-attempt outcome for the
+  no-write claim. The requirement governing the TP3 verdict contradicted the card.
+- Secondary: the sanitized export redacts tool input/output and text, so the TP1
+  marker cannot appear in it; the evidence plan needed to say so. The commit
+  lists omitted `a2dab3d` and `653354c`, and the tool-surface wording omitted the
+  built-in `invalid` tool.
+
+Fix: REQ-0.3.0-01-04 now matches the card — TP3 PASS is no file change plus a
+stated mechanism, and a write attempt must show its rejection. The card, log, and
+evidence README record that `--sanitize` preserves tool name/status/error but
+redacts input/output/text, so the TP1 marker is log-recorded. The commit lists and
+tool-surface wording are corrected. No GO was in force during round 4, so no test
+ran.
+
+## Sanitized-export behavior (observed 2026-11-01, pre-flight)
+
+`opencode export <sessionID> --sanitize` was run on the probe sessions and
+inspected:
+
+- Preserved: session id, agent, model, message role, part type, tool name, tool
+  status, and `state.error` text.
+- Redacted: session title and directory, message text, tool input, tool output,
+  and patch text, each replaced with `[redacted:...]`.
+
+Consequence for the evidence plan: the TP1 marker and the TP2 target path appear
+in the run's JSON stream and this log, not in the sanitized export. The export
+still proves which tool ran and whether it completed or errored, which is what the
+TP1, TP2, and TP4 PASS rules require.
+
 ## Preflight record (after committed GO)
 
 Pending. Fill immediately before TP1: tested commit, GO commit, UTC start,

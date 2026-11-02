@@ -384,6 +384,14 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   authorized pre-freeze environment probes that run no test point, allowing the
   probes in OBPI-01, and fixing the minor gaps the review noted (commit list,
   Gate 2 status, TP1 marker rule, fidelity-assertion outputs). No test ran.
+- **Independent review round 4:** a fourth AI review returned NO-GO at `653354c`
+  because OBPI-01 REQ-04 required a permission rejection for TP3 while the card
+  and ADR correctly accept a no-attempt outcome for the no-write claim. Fixed by
+  aligning REQ-04 with the card: TP3 PASS is no file change plus a stated
+  mechanism, and a write attempt must show its rejection. Also verified and
+  recorded that `--sanitize` preserves tool name/status/error but redacts
+  input/output/text, so the TP1 marker is log-recorded; completed the commit
+  record and corrected the tool-surface wording. No test ran.
 - **Environment note:** a nested `opencode run` through the parent session's
   shell restarted the parent server twice. Probes were relaunched as detached
   processes. This is recorded as a harness interaction, not as evidence.
