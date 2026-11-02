@@ -37,6 +37,10 @@ Status: PREPARED — NOT FLOWN. No test point has earned a verdict.
     would have made TP2 impossible. The final agent keeps `edit` and `write`
     enabled and disables only task, webfetch, websearch, todowrite, skill,
     question, glob, grep, and lsp.
+  - Probe 4 read the same fixture TP1 uses, but it ran before the card's GO and
+    with a different prompt, so it earns no TP1 verdict. TP1 must still be flown
+    in a fresh post-GO session with the card's exact prompt. This disclosure is
+    deliberate: the probe is a readiness check, not a pre-run of the test point.
 - Environment note: a nested `opencode run` invoked through the parent session's
   shell restarted the parent server twice during preparation. Probes were then
   launched as detached processes. This is a harness interaction note, not
