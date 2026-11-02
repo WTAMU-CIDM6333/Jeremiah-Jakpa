@@ -72,7 +72,7 @@ Path grounding: the parent ADR Interfaces explicitly authorizes all thirteen pat
 - `docs/adr/ADR-1.md` — course architecture decision; E3 does not rewrite E2's comparison.
 - `AGENTS.md` — protected contract.
 - `.gzkit/**` — instructions and CLI-owned ledger, never manually edited.
-- All paths not explicitly allowed; no new Python runtime, dependencies, commits, pushes, or TP1–TP4 sortie. Pre-freeze environment probes that invoke the local model without running a test point are authorized readiness checks and are recorded in `evolution-03/flight-log.md` as probes, not verdicts.
+- All paths not explicitly allowed; no new Python runtime, dependencies, pushes, or TP1–TP4 sortie. Preparation and freeze/GO commits are part of this process. Pre-freeze environment probes that invoke the local model without running a test point are authorized readiness checks and are recorded in `evolution-03/flight-log.md` as probes, not verdicts.
 
 ## Requirements (FAIL-CLOSED)
 

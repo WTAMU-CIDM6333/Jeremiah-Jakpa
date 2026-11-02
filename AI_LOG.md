@@ -390,8 +390,16 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   aligning REQ-04 with the card: TP3 PASS is no file change plus a stated
   mechanism, and a write attempt must show its rejection. Also verified and
   recorded that `--sanitize` preserves tool name/status/error but redacts
-  input/output/text, so the TP1 marker is log-recorded; completed the commit
-  record and corrected the tool-surface wording. No test ran.
+  input/output/text, so the TP1 marker is log-recorded; corrected the
+  tool-surface wording. No test ran.
+- **Independent review round 5:** a fifth AI review returned NO-GO at `42e85d8`
+  because the card's hand-maintained preparation-commit list omitted `a2dab3d`,
+  `653354c`, and `4c35aa6`, so the card and log disagreed. Fixed by removing the
+  hand-maintained lists and replacing them with a verifiable rule: baseline
+  `4c793ff`, later commits enumerated with `git log --oneline 4c793ff..HEAD`,
+  none of which may touch `opencode.json` or the E3 agent. OBPI-01 now names
+  preparation and freeze/GO commits as part of the process, and the log states
+  that TP2's permission-record shape is assumed until flight. No test ran.
 - **Environment note:** a nested `opencode run` through the parent session's
   shell restarted the parent server twice. Probes were relaunched as detached
   processes. This is recorded as a harness interaction, not as evidence.

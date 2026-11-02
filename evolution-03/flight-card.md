@@ -34,13 +34,10 @@ A bash command outside the allowlist fails with an error status.
 - Configuration baseline: `4c793ffe2d78d675a6d07dcacae3324e37d1c5ee`, the last
   commit that changed `opencode.json` or `.opencode/agents/mentalysis-e3.md`.
   Verify with `git log -1 --format=%H -- opencode.json
-  .opencode/agents/mentalysis-e3.md`. The freeze commit that adds this line must
-  change neither file. Require no configuration or agent change between
-  `4c793ff` and flight; any such change invalidates the GO.
-- Preparation commits: `0972d4c` (initial package), `d26d840` (first freeze),
-  `4c793ff` (round 1 review fixes), `7db8a97` (round 2 freeze). The configuration
-  baseline is `4c793ff`, the last commit touching `opencode.json` or the E3
-  agent.
+  .opencode/agents/mentalysis-e3.md`. Every later commit must change neither file;
+  enumerate the review and freeze commits with
+  `git log --oneline 4c793ff..HEAD`. The GO commit is recorded in the GO line when
+  it is created.
 - OpenCode: `1.18.21`.
 - Model: `ollama/llama3.2:3b`, served locally at `http://localhost:11434/v1`.
   `ollama list` shows `llama3.2:3b` (2.0 GB); `ollama show` reports a `tools`

@@ -4,14 +4,12 @@ Status: PREPARED — NOT FLOWN. No test point has earned a verdict.
 
 ## Preparation record — 2026-11-01 (not a flight event)
 
-- Preparation commits: `0972d4c` (initial package), `d26d840` (first freeze),
-  `4c793ff` (round 1 review fixes), `7db8a97` (round 2 freeze), `a2dab3d`
-  (round 3 fixes), `653354c` (round 3 freeze). The configuration baseline is
-  `4c793ff`, the last commit touching `opencode.json` or the E3 agent. Verify with
+- Configuration baseline: `4c793ffe2d78d675a6d07dcacae3324e37d1c5ee`, the last
+  commit touching `opencode.json` or the E3 agent. Verify with
   `git log -1 --format=%H -- opencode.json .opencode/agents/mentalysis-e3.md`.
-  Each later freeze or GO commit changes only the card, log, analysis, or
-  assistance history, and must change neither `opencode.json` nor the E3 agent.
-  The GO commit is recorded in the GO line when it is created.
+  Every later review, freeze, and GO commit must change neither file; enumerate
+  them with `git log --oneline 4c793ff..HEAD`. The review rounds are recorded
+  below in order, so no hand-maintained commit list can drift.
 - OpenCode `1.18.21`; model `ollama/llama3.2:3b`; Ollama `0.40.4`; model present
   locally (2.0 GB) with a `tools` capability.
 - Resolved with `opencode debug agent mentalysis-e3`: `mode: primary`, steps 8,
@@ -143,9 +141,34 @@ Verdict: **NO-GO** on the TP3 PASS rule.
 Fix: REQ-0.3.0-01-04 now matches the card — TP3 PASS is no file change plus a
 stated mechanism, and a write attempt must show its rejection. The card, log, and
 evidence README record that `--sanitize` preserves tool name/status/error but
-redacts input/output/text, so the TP1 marker is log-recorded. The commit lists and
-tool-surface wording are corrected. No GO was in force during round 4, so no test
-ran.
+redacts input/output/text, so the TP1 marker is log-recorded. The hand-maintained
+commit lists were later replaced with a command-based baseline rule so they cannot
+drift. No GO was in force during round 4, so no test ran.
+
+## Independent review round 5 — NO-GO (2026-11-01 20:14 CST)
+
+Reviewer: AI reviewer (Big Pickle subagent), not a human. Freeze reviewed:
+`42e85d8240727b13b729e6493deb9c10e0980d1f`. No model sortie was run and no file
+was modified by the reviewer.
+
+Verdict: **NO-GO** on the stale commit list.
+
+- Confirmed: the baseline rule holds, permissions and model resolve correctly,
+  TP3 is consistent across all four documents, the sanitization claim is accurate,
+  the lab file is byte-identical, and no flight or completion is claimed.
+- Blocking field: the card's preparation-commit list omitted `a2dab3d`,
+  `653354c`, and `4c35aa6`, so the card and log disagreed and the round 4 claim
+  that the commit record was complete was false.
+- Minor: OBPI-01's "no commits" denied-path wording conflicted with the required
+  preparation commits; the log overstated what the sanitized export proves for
+  TP2, whose permission-record shape no probe observed.
+
+Fix: the hand-maintained commit lists were removed from the card and log and
+replaced with a verifiable rule — baseline `4c793ff`, later commits enumerated
+with `git log --oneline 4c793ff..HEAD`, none of which may touch `opencode.json`
+or the E3 agent. OBPI-01 now names preparation and freeze/GO commits as part of
+the process, and the log states that TP2's permission-record shape is assumed
+until flight. No GO was in force during round 5, so no test ran.
 
 ## Sanitized-export behavior (observed 2026-11-01, pre-flight)
 
@@ -159,8 +182,10 @@ inspected:
 
 Consequence for the evidence plan: the TP1 marker and the TP2 target path appear
 in the run's JSON stream and this log, not in the sanitized export. The export
-still proves which tool ran and whether it completed or errored, which is what the
-TP1, TP2, and TP4 PASS rules require.
+still proves which tool ran and whether it completed or errored, which covers the
+TP1 and TP4 records. The TP2 permission-record shape is an assumption, not yet
+observed: no probe exercised an edit ask. TP2 must confirm that shape during
+flight or be classified INCONCLUSIVE.
 
 ## Preflight record (after committed GO)
 
