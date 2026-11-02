@@ -15,6 +15,11 @@ GO-authorized flight runs. Do not create placeholder exports.
   in the log, not as an invented claim.
 - The JSON stream printed by `opencode run --format json` is a working aid. The
   committed evidence is the sanitized export.
+- `--sanitize` preserves the session id, agent, model, tool name, tool status,
+  and error text, but redacts tool input/output, message text, title, and
+  directory. Observed on the pre-flight probe exports on 2026-11-01. The TP1
+  marker and the TP2 target path therefore belong in the flight log, not the
+  sanitized export.
 
 ## Expected files after flight
 

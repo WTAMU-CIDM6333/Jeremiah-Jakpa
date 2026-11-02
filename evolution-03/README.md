@@ -30,9 +30,10 @@ The same file sets the system permission policy:
 `.opencode/agents/mentalysis-e3.md` is a primary agent on `ollama/llama3.2:3b`.
 Non-essential tools (task, webfetch, websearch, todowrite, skill, question, glob,
 grep, lsp) are disabled to keep a 3B model's tool surface small. Read,
-write/edit, and bash remain, because those are the tools under test. `patch` stays
-enabled: setting `patch: false` also disables `edit`, which would make TP2
-impossible.
+edit/write, and bash remain, because those are the tools under test. The built-in
+`invalid` tool is also present but is not a filesystem or shell capability.
+`patch` stays enabled: setting `patch: false` also disables `edit`, which would
+make TP2 impossible.
 
 The project default still selects the E1 `mentalysis` agent. Select
 `mentalysis-e3` explicitly for E3, and restart OpenCode after changing agent
@@ -84,7 +85,9 @@ historically accurate for the day it describes.
    provider configuration.
 3. Validate the authored briefs under `ADR-0.3.0`. Configuration loading and
    document validation are not demonstrations of model behavior.
-4. Commit preparation. The freeze commit is recorded in `flight-log.md`.
+4. Commit preparation. The configuration baseline and the preparation/freeze
+   commits are recorded in `flight-log.md`; the GO commit is recorded in the GO
+   line when it is created.
 5. Record a committed dated GO on the completed card. An AI-authored GO must say
    it is AI-authored and must not be presented as a human signature.
 6. Run TP1–TP4 in fresh sessions with the exact prompts; export each parent with
