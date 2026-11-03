@@ -7,14 +7,17 @@ export was produced. The runs are preserved under `superseded/`.
 
 ## Rules
 
-- Evidence is `opencode export <sessionID> --sanitize` output, captured as
-  written. Never commit a raw export and never hand-edit a sanitized one.
+- Evidence is `opencode export <sessionID> --sanitize` output. Never commit a raw
+  export and never hand-edit a sanitized one. The one permitted transformation is
+  mechanical line-ending normalization, disclosed below; it changes no content.
 - Record each file's SHA-256 in `../flight-log.md` and in the commit message or
   log entry that adds it.
-- `.gitattributes` marks `evolution-03/evidence/**` as `-text` so the committed
-  bytes match the recorded SHA-256. The captures keep the Windows CRLF endings
-  they were written with, so `git diff --check` reports those lines as trailing
-  whitespace. That is expected; do not rewrite the evidence to silence it.
+- The Windows captures were written with CRLF. The committed copies are
+  LF-normalized so the repository-wide `* text=auto eol=lf` contract and the
+  `gz validate --line-endings` pre-push gate hold. The transformation removes
+  `\r` bytes only; no other byte changes. `../flight-log.md` records both the
+  capture-time CRLF SHA-256 and the committed LF SHA-256, and the committed hash
+  is the one that verifies the blob.
 - If a sanitized export still contains a secret, stop publication. Do not edit
   the file to remove it.
 - Capture `git status --short` before TP1 and after each test; record the output
