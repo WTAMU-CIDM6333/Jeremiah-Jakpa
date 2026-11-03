@@ -397,6 +397,12 @@ still the frozen plan. The configuration baseline check still returns `4c793ff`,
 and `git log --oneline 4c793ff..HEAD -- opencode.json
 .opencode/agents/mentalysis-e3.md` is still empty.
 
+`.gitattributes` now marks `evolution-03/evidence/**` as `-text`, so the committed
+blobs keep the captured bytes and match the recorded SHA-256. Because the captures
+retain Windows CRLF endings, `git diff --check` on the staged evidence reports
+those lines as trailing whitespace. The check is not clean for that reason; the
+evidence was not rewritten, because rewriting it would break the hashes.
+
 ## Reviewer evidence review
 
 Unsigned. After reviewing evidence, append:

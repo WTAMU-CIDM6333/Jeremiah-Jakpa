@@ -11,6 +11,10 @@ export was produced. The runs are preserved under `superseded/`.
   written. Never commit a raw export and never hand-edit a sanitized one.
 - Record each file's SHA-256 in `../flight-log.md` and in the commit message or
   log entry that adds it.
+- `.gitattributes` marks `evolution-03/evidence/**` as `-text` so the committed
+  bytes match the recorded SHA-256. The captures keep the Windows CRLF endings
+  they were written with, so `git diff --check` reports those lines as trailing
+  whitespace. That is expected; do not rewrite the evidence to silence it.
 - If a sanitized export still contains a secret, stop publication. Do not edit
   the file to remove it.
 - Capture `git status --short` before TP1 and after each test; record the output
