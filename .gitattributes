@@ -1,1 +1,5 @@
 * text=auto eol=lf
+
+# Flight evidence is captured as written. Never normalize its bytes, or the
+# recorded SHA-256 would not match the committed blob.
+evolution-03/evidence/** -text

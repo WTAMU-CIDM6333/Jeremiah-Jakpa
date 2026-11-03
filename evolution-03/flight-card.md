@@ -1,6 +1,8 @@
 # E3 — Sortie 3 flight card
 
-Status: PREPARED — GO field unsigned. No flight has run.
+Status: FLOWN — INCONCLUSIVE. The recorded GO and the flight result are in
+`flight-log.md`. The envelope, test points, and falsifiers below are preserved as
+frozen at `a815473`; only this status line changed in this card after the GO.
 Prepared: 2026-11-01. Pilot: Jeremiah Jakpa. Reviewer: AI reviewer, not a human.
 
 ## ENVELOPE

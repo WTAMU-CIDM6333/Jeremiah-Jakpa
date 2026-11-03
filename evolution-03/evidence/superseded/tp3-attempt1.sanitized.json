@@ -1,0 +1,153 @@
+{
+  "info": {
+    "id": "ses_e60c615c1ffeuVuAOeZUUEKCEj",
+    "slug": "hidden-mountain",
+    "projectID": "1a6163f85ea2499840b0c844f91e7d19fd77acd2",
+    "directory": "[redacted:session-directory:ses_e60c615c1ffeuVuAOeZUUEKCEj]",
+    "path": "",
+    "title": "[redacted:session-title:ses_e60c615c1ffeuVuAOeZUUEKCEj]",
+    "agent": "mentalysis-e3",
+    "model": {
+      "id": "llama3.2:3b",
+      "providerID": "ollama",
+      "variant": "default"
+    },
+    "version": "1.18.21",
+    "summary": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 0
+    },
+    "cost": 0,
+    "tokens": {
+      "input": 2050,
+      "output": 51,
+      "reasoning": 0,
+      "cache": {
+        "read": 0,
+        "write": 0
+      }
+    },
+    "permission": [
+      {
+        "permission": "question",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "plan_enter",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "plan_exit",
+        "pattern": "*",
+        "action": "deny"
+      }
+    ],
+    "time": {
+      "created": 1793672735294,
+      "updated": 1793672847471
+    }
+  },
+  "messages": [
+    {
+      "info": {
+        "role": "user",
+        "time": {
+          "created": 1793672736216
+        },
+        "agent": "mentalysis-e3",
+        "model": {
+          "providerID": "ollama",
+          "modelID": "llama3.2:3b"
+        },
+        "summary": {
+          "diffs": []
+        },
+        "id": "msg_19f39edd8001AaS0d5vOIljnjS",
+        "sessionID": "ses_e60c615c1ffeuVuAOeZUUEKCEj"
+      },
+      "parts": [
+        {
+          "type": "text",
+          "text": "[redacted:text:prt_19f39ee0300190EbJ8Nyyk0PCv]",
+          "id": "prt_19f39ee0300190EbJ8Nyyk0PCv",
+          "sessionID": "ses_e60c615c1ffeuVuAOeZUUEKCEj",
+          "messageID": "msg_19f39edd8001AaS0d5vOIljnjS"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_19f39edd8001AaS0d5vOIljnjS",
+        "role": "assistant",
+        "mode": "mentalysis-e3",
+        "agent": "mentalysis-e3",
+        "path": {
+          "cwd": "[redacted:cwd:msg_19f39f4fb001hXVr4o4bX2cR3n]",
+          "root": "[redacted:root:msg_19f39f4fb001hXVr4o4bX2cR3n]"
+        },
+        "cost": 0,
+        "tokens": {
+          "total": 2101,
+          "input": 2050,
+          "output": 51,
+          "reasoning": 0,
+          "cache": {
+            "write": 0,
+            "read": 0
+          }
+        },
+        "modelID": "llama3.2:3b",
+        "providerID": "ollama",
+        "time": {
+          "created": 1793672738043,
+          "completed": 1793672847307
+        },
+        "finish": "stop",
+        "id": "msg_19f39f4fb001hXVr4o4bX2cR3n",
+        "sessionID": "ses_e60c615c1ffeuVuAOeZUUEKCEj"
+      },
+      "parts": [
+        {
+          "snapshot": "[redacted:snapshot:prt_19f3b69fb001PHEHIseWiV3S2b]",
+          "type": "step-start",
+          "id": "prt_19f3b69fb001PHEHIseWiV3S2b",
+          "sessionID": "ses_e60c615c1ffeuVuAOeZUUEKCEj",
+          "messageID": "msg_19f39f4fb001hXVr4o4bX2cR3n"
+        },
+        {
+          "type": "text",
+          "text": "[redacted:text:prt_19f3b6a6e001mrrGBR9IMJSKbE]",
+          "time": {
+            "start": 1793672833646,
+            "end": 1793672836067
+          },
+          "id": "prt_19f3b6a6e001mrrGBR9IMJSKbE",
+          "sessionID": "ses_e60c615c1ffeuVuAOeZUUEKCEj",
+          "messageID": "msg_19f39f4fb001hXVr4o4bX2cR3n"
+        },
+        {
+          "reason": "stop",
+          "snapshot": "[redacted:snapshot:prt_19f3b9499001uGtYUBVxZ1IJCI]",
+          "type": "step-finish",
+          "tokens": {
+            "total": 2101,
+            "input": 2050,
+            "output": 51,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "cost": 0,
+          "id": "prt_19f3b9499001uGtYUBVxZ1IJCI",
+          "sessionID": "ses_e60c615c1ffeuVuAOeZUUEKCEj",
+          "messageID": "msg_19f39f4fb001hXVr4o4bX2cR3n"
+        }
+      ]
+    }
+  ]
+}
