@@ -3,7 +3,7 @@ name = "mentalysis-course"
 version = "0.1.0"
 description = "Mentalysis educational DCF review: CIDM 6333 course repository"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = ["mcp<2"]
 
 [dependency-groups]
 # Development-only tools required by the installed gzkit check runners.
