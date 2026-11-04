@@ -21,3 +21,8 @@
 {"timestamp": "2026-11-04T17:09:54.586925Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
 {"timestamp": "2026-11-04T17:09:54.587239Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
 {"timestamp": "2026-11-04T17:09:54.587442Z", "event": "refusal", "tool": "delete_everything", "sub": null, "reason": "tool_not_in_table"}
+{"timestamp": "2026-11-04T17:10:58.613929Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:10:58.614554Z", "event": "refusal", "tool": "add_flight", "sub": "badreader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:10:58.632671Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:10:58.633033Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:10:58.633280Z", "event": "refusal", "tool": "delete_everything", "sub": null, "reason": "tool_not_in_table"}

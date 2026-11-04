@@ -477,3 +477,11 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
 - **Claim checked:** MCP authorization must be checked before tool execution and scope must come only from verified tokens (not client-supplied args/headers/body). Checked against MCP security patterns and server-side authorization requirements. Verified by tests: read token gets 403 on write tool before function runs; wrong audience gets 401; scope in args ignored; tool not in table refused; all refusals logged with sub and tool.
 - **Work done:** Created hardened server in `src/flights/` (scopes.py, auth.py, server.py), tests proving enforcement, adversarial client in `evolution-05/adversarial_client.py`, tool-pins.json and pin.py, flight card with GO (2026-11-04 11:00 CDT) before first log entry, flight log with TP0-TP4 all PASS, revised AGENTS.md from Evolution-0 base (1665→1047 chars) with skills under `.opencode/skills/`, re-measurement, design analyses (E4, E5) added to ledger.
 - **Outcome:** E5 sprint complete with all deliverables; flight verdict PASS.
+
+## 2026-11-04 — E6 Sprint: Context engineering
+- **Asked:** Add budget meter, compactor with keep list, handoff writer/resume loader, append-only ledger; test fresh session resume with no loss of intent.
+- **Model and harness:** OpenCode with `opencode/big-pickle`; Chase AI reviewer, not human.
+- **Model ids used:** `opencode/big-pickle`
+- **Claim checked:** A fresh session resumed from handoff + L1 files + ledger tail (no transcript) preserves intent when compactor keeps declared items word for word. Verified by tests and flight log.
+- **Work done:** Created `src/context/` package (budget, compactor, handoff, ledger), tests in `tests/test_e6_context.py`, flight card/log in `evolution-06/`, handoff.md with seven sections, ledger at `var/ledger.jsonl`, README updated with Layers of truth (L2 > L1 > L3), design analysis added.
+- **Outcome:** E6 sprint complete; flight verdict PASS.
