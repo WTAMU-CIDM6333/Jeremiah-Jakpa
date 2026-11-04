@@ -1,0 +1,14 @@
+{
+  "get_flights": {
+    "name": "get_flights",
+    "description": "Read tool: Get flights information (read operation)."
+  },
+  "list_tools_info": {
+    "name": "list_tools_info",
+    "description": "Read tool: List information about available tools."
+  },
+  "add_flight": {
+    "name": "add_flight",
+    "description": "Write tool: Add a new flight (write operation)."
+  }
+}

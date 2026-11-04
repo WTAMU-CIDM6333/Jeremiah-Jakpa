@@ -1,0 +1,1 @@
+"""Flights MCP server package."""

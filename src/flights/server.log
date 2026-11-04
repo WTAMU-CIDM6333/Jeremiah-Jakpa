@@ -1,0 +1,18 @@
+{"timestamp": "2026-11-04T17:03:18.148659Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:18.178531Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:18.179139Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:18.179447Z", "event": "refusal", "tool": "delete_everything", "sub": null, "reason": "tool_not_in_table"}
+{"timestamp": "2026-11-04T17:03:35.766814Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:35.767559Z", "event": "refusal", "tool": "add_flight", "sub": "badreader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:35.781305Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:35.781664Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:35.781865Z", "event": "refusal", "tool": "delete_everything", "sub": null, "reason": "tool_not_in_table"}
+{"timestamp": "2026-11-04T17:03:58.784253Z", "event": "refusal", "tool": "add_flight", "sub": "adversary1", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:58.784892Z", "event": "refusal", "tool": "add_flight", "sub": null, "reason": "unauthorized", "error": "Invalid audience"}
+{"timestamp": "2026-11-04T17:03:58.785124Z", "event": "refusal", "tool": "add_flight", "sub": "adversary3", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:03:58.785238Z", "event": "refusal", "tool": "admin_delete_all", "sub": null, "reason": "tool_not_in_table"}
+{"timestamp": "2026-11-04T17:07:32.774273Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:07:32.775169Z", "event": "refusal", "tool": "add_flight", "sub": "badreader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:07:32.789479Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:07:32.789808Z", "event": "refusal", "tool": "add_flight", "sub": "reader", "reason": "insufficient_scope"}
+{"timestamp": "2026-11-04T17:07:32.789982Z", "event": "refusal", "tool": "delete_everything", "sub": null, "reason": "tool_not_in_table"}

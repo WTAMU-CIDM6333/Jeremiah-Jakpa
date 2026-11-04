@@ -469,3 +469,11 @@ Historical entries are preserved in `evolution-00/AI_LOG.md`.
   instruction does not cause a write — is not established for
   `ollama/llama3.2:3b`. If a passing sortie is wanted later, fix tool-call
   delivery before a new freeze and GO.
+
+## 2026-11-04 — E5 Sprint: MCP II hardening
+- **Asked:** Harden the MCP server for adversarial clients (E5). Token-based scope verification, scope table, tool pinning, AGENTS.md revision from 09/17 base with skills, re-measurement, design analysis.
+- **Model and harness:** Authoring assistant through OpenCode; model `opencode/big-pickle`. Chase reviewer `AI reviewer (Big Pickle)`, not a human.
+- **Model ids used:** `opencode/big-pickle` (authoring), `ollama/llama3.2:3b` (context from prior work).
+- **Claim checked:** MCP authorization must be checked before tool execution and scope must come only from verified tokens (not client-supplied args/headers/body). Checked against MCP security patterns and server-side authorization requirements. Verified by tests: read token gets 403 on write tool before function runs; wrong audience gets 401; scope in args ignored; tool not in table refused; all refusals logged with sub and tool.
+- **Work done:** Created hardened server in `src/flights/` (scopes.py, auth.py, server.py), tests proving enforcement, adversarial client in `evolution-05/adversarial_client.py`, tool-pins.json and pin.py, flight card with GO (2026-11-04 11:00 CDT) before first log entry, flight log with TP0-TP4 all PASS, revised AGENTS.md from Evolution-0 base (1665→1047 chars) with skills under `.opencode/skills/`, re-measurement, design analyses (E4, E5) added to ledger.
+- **Outcome:** E5 sprint complete with all deliverables; flight verdict PASS.
