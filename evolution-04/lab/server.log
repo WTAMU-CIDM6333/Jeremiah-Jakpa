@@ -1,0 +1,11 @@
+Processing request of type ListToolsRequest
+Processing request of type CallToolRequest
+{"timestamp": "2026-11-04T16:47:37.267884Z", "tool": "get_flights", "client": "python-client-script", "args": {"status": "all", "client_name": "python-client-script"}}
+Warning: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+Processing request of type CallToolRequest
+{"timestamp": "2026-11-04T16:47:37.280203Z", "tool": "list_tools_info", "client": "python-client-script", "args": {"client_name": "python-client-script"}}
+Warning: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+Processing request of type CallToolRequest
+{"timestamp": "2026-11-04T16:47:37.286324Z", "tool": "add_flight", "client": "python-client-script", "args": {"destination": "Seattle", "status": "on-time", "client_name": "python-client-script"}}
+Warning: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+Warning: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
